@@ -3,21 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Viasacra — Richard Zhu</title>
-  <meta name="description" content="Law × Astrophysics × Design — a personal archive of calm clarity.">
+  <title>I Ching — Viasacra</title>
   <link rel="stylesheet" href="assets/style.css" />
-  <link rel="icon" href="favicon.ico" />
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""
-  />
-    <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""
-  ></script>
+  <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/5.41.1/gradio.js"></script>
+  <style>
+    .embed-wrap { max-width: 980px; margin: 24px auto; }
+    .embed-wrap gradio-app { display:block; width:100%; min-height: 760px; }
+    .subtle { color: var(--muted); text-align:center; margin: 8px 0 24px; }
+  </style>
 </head>
 <body>
   <header class="nav">
@@ -33,61 +26,14 @@
     </div>
   </header>
 
-<main class="wrap">
-  <!-- Hi / hero -->
-  <section class="hero">
-    <h1>hi — i’m richard</h1>
-    <p>law × astrophysics × design. building quiet, useful things.</p>
-  </section>
+  <main class="wrap">
+    <h1>I Ching</h1>
+    <p class="subtle">Interactive divination tool embedded from Hugging Face.</p>
+  </main>
 
-  <!-- Map slider -->
-  <section class="map-gallery">
-    <div class="gallery-header">
-      <h2>places with gravity</h2>
-      <div class="controls">
-        <button class="btn" id="prevSlide" aria-label="Previous">&#8592;</button>
-        <span id="slideLabel" class="muted"></span>
-        <button class="btn" id="nextSlide" aria-label="Next">&#8594;</button>
-      </div>
-    </div>
-
-    <div class="slides" id="mapSlides">
-      <!-- Slide 1: Chicago -->
-      <article class="slide">
-        <h3>Chicago</h3>
-        <div class="map" id="map-chicago" role="img" aria-label="Map of Chicago"></div>
-        <ul class="legend">
-          <li>❤️ = love / life</li>
-          <li>🏛️ = study</li>
-          <li>💼 = work</li>
-        </ul>
-      </article>
-
-      <!-- Slide 2: Los Angeles (UCLA) -->
-      <article class="slide">
-        <h3>Los Angeles (UCLA)</h3>
-        <div class="map" id="map-la" role="img" aria-label="Map of UCLA"></div>
-        <ul class="legend">
-          <li>❤️ = love / life</li>
-          <li>🏛️ = study</li>
-          <li>💼 = work</li>
-        </ul>
-      </article>
-
-      <!-- Slide 3: Beijing -->
-      <article class="slide">
-        <h3>Beijing</h3>
-        <div class="map" id="map-beijing" role="img" aria-label="Map of Beijing"></div>
-        <ul class="legend">
-          <li>❤️ = love / life</li>
-          <li>🏛️ = study</li>
-          <li>💼 = work</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-</main>
-
+  <div class="embed-wrap">
+    <gradio-app src="https://supremerx7-iching.hf.space"></gradio-app>
+  </div>
 
   <footer class="foot"><small>© <span id="year"></span> Richard Zhu</small></footer>
   <script src="assets/site.js"></script>
