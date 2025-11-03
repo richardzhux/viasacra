@@ -1,43 +1,49 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Projects — Viasacra</title>
-<link rel="stylesheet" href="assets/style.css" />
-</head><body>
-<header class="nav"><div class="wrap">
-<a class="brand" href="index.html">Viasacra</a>
-<nav>
-  <a href="about.html">About</a>
-  <a href="projects.html">Projects</a>
-  <a href="meditations.html">Meditations</a>
-  <a href="random.html">Random</a>
-  <a href="lux.html">Lux</a>
-</nav></div></header>
-<main class="wrap"><h1>Projects</h1><p>Coming soon.</p></main>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects — Viasacra</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <!-- Gradio web component for the embedded HF app -->
+  <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/5.41.1/gradio.js"></script>
+  <style>
+    .subtle { color: var(--muted); }
+    .embed-wrap { max-width: 980px; margin: 24px auto; }
+    .embed-wrap gradio-app { display:block; width:100%; min-height:760px; }
+    .proj-intro { margin: 8px 0 24px; }
+    .proj-card { padding: 16px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="index.html">Viasacra</a>
+      <nav>
+        <a href="about.html">About</a>
+        <a class="active" href="projects.html">Projects</a>
+        <a href="meditations.html">Meditations</a>
+        <a href="random.html">Random</a>
+        <a href="lux.html">Lux</a>
+      </nav>
+    </div>
+  </header>
 
-<main class="wrap">
-  <h1>Projects</h1>
+  <main class="wrap">
+    <h1>Projects</h1>
+    <p class="proj-intro subtle">Selected interactive tools and experiments.</p>
 
-  <section class="grid">
-    <article class="card">
-      <h3>I Ching (Hugging Face)</h3>
-      <p>An interactive divination tool with clean, minimal UI.</p>
-      <p>
-        <a class="btn" href="iching.html">Open full app</a>
-        <a class="btn" href="https://supremerx7-iching.hf.space" target="_blank" rel="noopener">Open on HF</a>
-      </p>
-      <!-- Inline preview (smaller) -->
-      <div class="embed-sm">
+    <!-- I Ching project embedded directly -->
+    <section class="proj-card">
+      <h2 style="margin-top:0;">I Ching</h2>
+      <p class="subtle">Interactive divination tool embedded from Hugging Face.</p>
+      <div class="embed-wrap">
         <gradio-app src="https://supremerx7-iching.hf.space"></gradio-app>
       </div>
-    </article>
+    </section>
+  </main>
 
-    <!-- Add more project cards here as you build them -->
-  </section>
-</main>
-
-
-<footer class="foot"><small>© <span id="year"></span> Richard Zhu</small></footer>
-<script src="assets/site.js"></script>
-</body></html>
+  <footer class="foot"><small>© <span id="year"></span> Richard Zhu</small></footer>
+  <script src="assets/site.js"></script>
+</body>
+</html>
