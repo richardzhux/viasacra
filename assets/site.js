@@ -1,3 +1,4 @@
+```javascript
 // Footer year
 const y = document.getElementById("year");
 if (y) y.textContent = new Date().getFullYear();
@@ -16,12 +17,29 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 
-// --- Map + slider only on the homepage ---
+// --- Map + slider initialization (robust) ---
 function initMapsIfPresent() {
+  // Defer until Leaflet is loaded
+  if (typeof L === "undefined") {
+    setTimeout(initMapsIfPresent, 100);
+    return;
+  }
+
   const mapChicagoEl = document.getElementById("map-chicago");
   const mapLAEl = document.getElementById("map-la");
   const mapBeijingEl = document.getElementById("map-beijing");
-  if (!mapChicagoEl || !mapLAEl || !mapBeijingEl || !window.L) return;
+  if (!mapChicagoEl || !mapLAEl || !mapBeijingEl) return;
+
+  // Avoid reinitialization
+  if (window._mapsBootstrapDone) {
+    try {
+      mapChi.invalidateSize();
+      mapLA.invalidateSize();
+      mapBJ.invalidateSize();
+    } catch {}
+    return;
+  }
+  window._mapsBootstrapDone = true;
 
   // Emoji markers (simple Leaflet divIcons)
   const icon = (emoji) => L.divIcon({
@@ -83,9 +101,9 @@ function initMapsIfPresent() {
     if (label) label.textContent = `${names[i]} • ${i+1}/${slides.length}`;
     // Resize maps when their slide becomes visible
     setTimeout(() => {
-      mapChi.invalidateSize();
-      mapLA.invalidateSize();
-      mapBJ.invalidateSize();
+      try { mapChi.invalidateSize(); } catch(e) {}
+      try { mapLA.invalidateSize(); } catch(e) {}
+      try { mapBJ.invalidateSize(); } catch(e) {}
     }, 150);
   }
   document.getElementById("prevSlide")?.addEventListener("click", () => {
