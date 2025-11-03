@@ -1,4 +1,3 @@
-```javascript
 // Footer year
 const y = document.getElementById("year");
 if (y) y.textContent = new Date().getFullYear();
@@ -9,79 +8,102 @@ document.getElementById("cta")?.addEventListener("click", () => {
 });
 
 // Smooth anchor scroll
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener("click",e=>{
-    const id=a.getAttribute("href").slice(1);
-    const el=document.getElementById(id);
-    if(el){ e.preventDefault(); el.scrollIntoView({behavior:"smooth"}); }
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener("click", e => {
+    const id = a.getAttribute("href").slice(1);
+    const el = document.getElementById(id);
+    if (el) { e.preventDefault(); el.scrollIntoView({ behavior: "smooth" }); }
   });
 });
 
-// --- Map + slider initialization (robust) ---
+// ---- Maps (Leaflet) ---------------------------------------------------------
+
+// Helper: add HTTPS tiles with a fallback source
+function addTiles(map) {
+  const primary = L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    { attribution: "© OpenStreetMap contributors" }
+  );
+
+  const fallback = L.tileLayer(
+    "https://tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",
+    { attribution: "© OpenStreetMap France" }
+  );
+
+  // If any tile errors, switch to fallback once
+  primary.on("tileerror", () => {
+    if (!map.__usedFallback) {
+      map.__usedFallback = true;
+      map.removeLayer(primary);
+      fallback.addTo(map);
+    }
+  });
+
+  primary.addTo(map);
+}
+
+// Initialize maps only if Leaflet & map containers exist
 function initMapsIfPresent() {
-  // Defer until Leaflet is loaded
-  if (typeof L === "undefined") {
-    setTimeout(initMapsIfPresent, 100);
+  // Defer until Leaflet loads
+  if (typeof window !== "undefined" && typeof window.L === "undefined") {
+    setTimeout(initMapsIfPresent, 120);
     return;
   }
+  if (typeof L === "undefined") return;
 
   const mapChicagoEl = document.getElementById("map-chicago");
   const mapLAEl = document.getElementById("map-la");
   const mapBeijingEl = document.getElementById("map-beijing");
   if (!mapChicagoEl || !mapLAEl || !mapBeijingEl) return;
 
-  // Avoid reinitialization
-  if (window._mapsBootstrapDone) {
-    try {
-      mapChi.invalidateSize();
-      mapLA.invalidateSize();
-      mapBJ.invalidateSize();
-    } catch {}
-    return;
-  }
+  // guard against double init
+  if (window._mapsBootstrapDone) return;
   window._mapsBootstrapDone = true;
 
-  // Emoji markers (simple Leaflet divIcons)
+  // Emoji markers (divIcon)
   const icon = (emoji) => L.divIcon({
     className: "emoji-pin",
-    html: `<div style="font-size:20px; line-height:20px; text-align:center; width:28px; height:28px; border-radius:50%; background:#fff; border:1px solid #e0d9cd; box-shadow:0 4px 12px rgba(0,0,0,.08); display:flex; align-items:center; justify-content:center;">${emoji}</div>`,
+    html: `<div style="
+      font-size:20px; line-height:20px; text-align:center;
+      width:28px; height:28px; border-radius:50%;
+      background:#fff; border:1px solid #e0d9cd; box-shadow:0 4px 12px rgba(0,0,0,.08);
+      display:flex; align-items:center; justify-content:center;
+    ">${emoji}</div>`,
     iconSize: [28, 28],
     iconAnchor: [14, 14]
   });
 
   // --- Slide 1: Chicago ---
-  const mapChi = L.map("map-chicago", { scrollWheelZoom:false }).setView([41.89, -87.65], 11);
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: "© OSM" }).addTo(mapChi);
+  const mapChi = L.map("map-chicago", { scrollWheelZoom: false })
+    .setView([41.89, -87.65], 11);
+  addTiles(mapChi);
 
-  // Northwestern (study)
   L.marker([42.0560, -87.6752], { icon: icon("🏛️") })
     .addTo(mapChi)
     .bindPopup("<b>Northwestern — Evanston</b><br>2023–2026 • Physics & Legal Studies (Classics minor)");
 
-  // 55 E Monroe (work)
   L.marker([41.8807, -87.6256], { icon: icon("💼") })
     .addTo(mapChi)
     .bindPopup("<b>Federal Defender Program</b><br>55 E Monroe, Chicago");
 
   // --- Slide 2: Los Angeles (UCLA) ---
-  const mapLA = L.map("map-la", { scrollWheelZoom:false }).setView([34.070, -118.445], 13);
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: "© OSM" }).addTo(mapLA);
+  const mapLA = L.map("map-la", { scrollWheelZoom: false })
+    .setView([34.070, -118.445], 13);
+  addTiles(mapLA);
 
-  // UCLA De Neve Birch (love/heart)
   L.marker([34.0716, -118.4513], { icon: icon("❤️") })
     .addTo(mapLA)
     .bindPopup("<b>UCLA — De Neve Birch</b><br>memories / love");
 
-  // Engineering V (work/study-ish)
   L.marker([34.0689, -118.4437], { icon: icon("💼") })
     .addTo(mapLA)
     .bindPopup("<b>UCLA — Engineering V</b><br>PSPL • Engineering V");
 
   // --- Slide 3: Beijing ---
-  const mapBJ = L.map("map-beijing", { scrollWheelZoom:false }).setView([39.9395, 116.3596], 12);
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: "© OSM" }).addTo(mapBJ);
+  const mapBJ = L.map("map-beijing", { scrollWheelZoom: false })
+    .setView([39.9395, 116.3596], 12);
+  addTiles(mapBJ);
 
-  // Experimental HS attached to BNU (study)
   L.marker([39.9395, 116.3596], { icon: icon("🏛️") })
     .addTo(mapBJ)
     .bindPopup("<b>Experimental High School Affiliated to BNU</b>");
@@ -91,16 +113,18 @@ function initMapsIfPresent() {
   let idx = 0;
   const label = document.getElementById("slideLabel");
   const names = ["Chicago", "Los Angeles (UCLA)", "Beijing"];
+
   function show(i) {
     slides.forEach((s, n) => s.classList.toggle("active", n === i));
-    if (label) label.textContent = `${names[i]} • ${i+1}/${slides.length}`;
+    if (label) label.textContent = `${names[i]} • ${i + 1}/${slides.length}`;
     // Resize maps when their slide becomes visible
     setTimeout(() => {
-      try { mapChi.invalidateSize(); } catch(e) {}
-      try { mapLA.invalidateSize(); } catch(e) {}
-      try { mapBJ.invalidateSize(); } catch(e) {}
+      try { mapChi.invalidateSize(); } catch {}
+      try { mapLA.invalidateSize(); } catch {}
+      try { mapBJ.invalidateSize(); } catch {}
     }, 150);
   }
+
   document.getElementById("prevSlide")?.addEventListener("click", () => {
     idx = (idx - 1 + slides.length) % slides.length;
     show(idx);
@@ -109,6 +133,8 @@ function initMapsIfPresent() {
     idx = (idx + 1) % slides.length;
     show(idx);
   });
+
   show(0);
 }
+
 document.addEventListener("DOMContentLoaded", initMapsIfPresent);
