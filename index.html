@@ -3,13 +3,35 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>I Ching — Viasacra</title>
+  <title>Viasacra — Richard Zhu</title>
+  <meta name="description" content="Law × Astrophysics × Design — a personal archive of calm clarity.">
   <link rel="stylesheet" href="assets/style.css" />
-  <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/5.41.1/gradio.js"></script>
+  <link rel="icon" href="favicon.ico" />
+
+  <!-- Leaflet (no SRI, HTTPS) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="anonymous">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous"></script>
+
+  <!-- Page-scoped safety styles in case site-wide CSS is missing -->
   <style>
-    .embed-wrap { max-width: 980px; margin: 24px auto; }
-    .embed-wrap gradio-app { display:block; width:100%; min-height: 760px; }
-    .subtle { color: var(--muted); text-align:center; margin: 8px 0 24px; }
+    .map-gallery { padding: 12px 0 40px; }
+    .gallery-header { display:flex; justify-content:space-between; align-items:center; margin:4px 0 12px; }
+    .gallery-header h2 { margin:0; }
+    .controls { display:flex; align-items:center; gap:10px; }
+    .muted { color: #78716c; }
+    .btn { display:inline-block; padding:8px 12px; border:1px solid #e7e0d6; border-radius:12px; background:#faf7f2; cursor:pointer; }
+    .btn:hover { filter:brightness(.98); }
+
+    .slides { position:relative; overflow:hidden; }
+    .slide { min-height: 520px; }
+    .slide:not(.active) { display:none; }
+    .slide h3 { margin:6px 0 10px; }
+    .map { width:100%; min-height:420px; height:420px; border:1px solid #e7e0d6; border-radius:14px; background:#fff; }
+    .legend { list-style:none; padding:8px 0 0; margin:0; color:#78716c; display:flex; gap:16px; }
+
+    /* Rotating greeting fade */
+    #greeting { display:inline-block; transition: opacity .35s ease; }
+    #greeting.is-fading { opacity: 0; }
   </style>
 </head>
 <body>
@@ -27,15 +49,62 @@
   </header>
 
   <main class="wrap">
-    <h1>I Ching</h1>
-    <p class="subtle">Interactive divination tool embedded from Hugging Face.</p>
+    <!-- Hi / hero -->
+    <section class="hero">
+      <h1><span id="greeting">Hi — how are you today?</span></h1>
+      <p>law × astrophysics × design. building quiet, useful things.</p>
+    </section>
+
+    <!-- Map slider -->
+    <section class="map-gallery">
+      <div class="gallery-header">
+        <h2>places with gravity</h2>
+        <div class="controls">
+          <button class="btn" id="prevSlide" aria-label="Previous">&#8592;</button>
+          <span id="slideLabel" class="muted"></span>
+          <button class="btn" id="nextSlide" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+
+      <div class="slides" id="mapSlides">
+        <!-- Slide 1: Chicago -->
+        <article class="slide">
+          <h3>Chicago</h3>
+          <div class="map" id="map-chicago" role="img" aria-label="Map of Chicago"></div>
+          <ul class="legend">
+            <li>❤️ = love / life</li>
+            <li>🏛️ = study</li>
+            <li>💼 = work</li>
+          </ul>
+        </article>
+
+        <!-- Slide 2: Los Angeles (UCLA) -->
+        <article class="slide">
+          <h3>Los Angeles (UCLA)</h3>
+          <div class="map" id="map-la" role="img" aria-label="Map of UCLA"></div>
+          <ul class="legend">
+            <li>❤️ = love / life</li>
+            <li>🏛️ = study</li>
+            <li>💼 = work</li>
+          </ul>
+        </article>
+
+        <!-- Slide 3: Beijing -->
+        <article class="slide">
+          <h3>Beijing</h3>
+          <div class="map" id="map-beijing" role="img" aria-label="Map of Beijing"></div>
+          <ul class="legend">
+            <li>❤️ = love / life</li>
+            <li>🏛️ = study</li>
+            <li>💼 = work</li>
+          </ul>
+        </article>
+      </div>
+    </section>
   </main>
 
-  <div class="embed-wrap">
-    <gradio-app src="https://supremerx7-iching.hf.space"></gradio-app>
-  </div>
-
   <footer class="foot"><small>© <span id="year"></span> Richard Zhu</small></footer>
+
   <script src="assets/site.js"></script>
 </body>
 </html>
