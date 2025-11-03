@@ -44,12 +44,7 @@ function initMapsIfPresent() {
   // Emoji markers (simple Leaflet divIcons)
   const icon = (emoji) => L.divIcon({
     className: "emoji-pin",
-    html: `<div style="
-      font-size:20px; line-height:20px; text-align:center;
-      width:28px; height:28px; border-radius:50%;
-      background:#fff; border:1px solid #e0d9cd; box-shadow:0 4px 12px rgba(0,0,0,.08);
-      display:flex; align-items:center; justify-content:center;
-    ">${emoji}</div>`,
+    html: `<div style="font-size:20px; line-height:20px; text-align:center; width:28px; height:28px; border-radius:50%; background:#fff; border:1px solid #e0d9cd; box-shadow:0 4px 12px rgba(0,0,0,.08); display:flex; align-items:center; justify-content:center;">${emoji}</div>`,
     iconSize: [28, 28],
     iconAnchor: [14, 14]
   });
