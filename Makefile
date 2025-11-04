@@ -4,3 +4,9 @@ commit:
 	git add . && \
 	git commit -m "AC @ $$current_time" && \
 	git push origin main
+
+push:
+	@echo "Syncing and pushing main..."
+	@git fetch origin
+	-@git pull --rebase --autostash origin main
+	@git push -u origin main
