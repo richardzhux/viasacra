@@ -5,6 +5,7 @@ body {
   margin: 0;
   font-family: "Palatino", "Palatino Linotype", "Book Antiqua", "URW Palladio L", Georgia, serif;
   line-height: 1.6;
+  font-size: 1.0625rem;
   color: var(--ink);
   background: linear-gradient(#f8f6f2, var(--paper));
 }
@@ -26,11 +27,16 @@ body {
   --paper:#f6f3ee; --sand:#efe9df; --ink:#1f1f1f;
   --muted:#6c6c6c; --accent:#9a7b43; --line:#e6e0d6;
   --radius:18px; --max:980px; --shadow:0 8px 24px rgba(0,0,0,.06);
-  --nav-height:72px;
+  --nav-height:72px; --gutter:clamp(24px,6vw,96px);
 }
 *{box-sizing:border-box}
 
-.wrap{max-width:var(--max);margin:0 auto;padding:24px;}
+.wrap{
+  width:100%;
+  max-width:100%;
+  margin:0;
+  padding:24px var(--gutter);
+}
 .nav{
   position:fixed;
   top:0;
@@ -48,7 +54,35 @@ body {
   z-index:0;
 }
 .nav .wrap{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
-.brand{text-decoration:none;color:var(--ink);font-weight:600;text-shadow:0 2px 6px rgba(0,0,0,.25);}
+.brand{
+  text-decoration:none;
+  color:var(--ink);
+  font-weight:500;
+  font-size:clamp(26px,4vw,34px);
+  letter-spacing:0.04em;
+  text-shadow:0 2px 6px rgba(0,0,0,.25);
+  display:inline-block;
+}
+.brand span{
+  display:inline-block;
+  vertical-align:baseline;
+  line-height:1;
+}
+.brand .brand-letter{
+  font-weight:600;
+  letter-spacing:0;
+}
+.brand .brand-letter--v{
+  margin-right:0.04em;
+}
+.brand .brand-letter--s{
+  margin:0 0.04em;
+}
+.brand .brand-rest{
+  font-size:0.92em;
+  letter-spacing:0.01em;
+  font-weight:400;
+}
 .nav nav a{margin-left:16px;color:var(--muted);text-decoration:none;text-shadow:0 2px 6px rgba(0,0,0,.2);}
 .nav nav a:hover{color:var(--ink);}
 .hero{
@@ -264,7 +298,7 @@ button#cta{
   gap:24px;
 }
 .lux-intro{
-  padding:120px 0 24px;
+  padding:120px var(--gutter) 24px;
 }
 .lux-intro .lead{
   margin:12px 0 0;

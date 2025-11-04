@@ -13,12 +13,16 @@
     .embed-wrap gradio-app { display:block; width:100%; min-height:760px; }
     .proj-intro { margin: 8px 0 24px; }
     .proj-card { padding: 16px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
+    .widget-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); margin-top: 16px; }
+    .widget-grid iframe { width: 100%; min-height: 450px; border: 0; border-radius: var(--radius); background: #fff; }
+    .widget-grid h3 { margin: 0 0 8px; font-size: 1rem; }
+    .widget-note { margin-top: 12px; font-size: 0.9rem; color: var(--muted); }
   </style>
 </head>
 <body>
   <header class="nav">
     <div class="wrap">
-      <a class="brand" href="../home/index.html">Viasacra</a>
+      <a class="brand" href="../home/index.html"><span class="brand-letter brand-letter--v">V</span><span class="brand-rest">ia</span><span class="brand-letter brand-letter--s">S</span><span class="brand-rest">acra</span></a>
       <nav>
         <a href="../about/index.html">About</a>
         <a class="active" href="./index.html">Projects</a>
@@ -41,6 +45,35 @@
       <div class="embed-wrap">
         <gradio-app src="https://supremerx7-iching.hf.space"></gradio-app>
       </div>
+    </section>
+
+    <section class="proj-card">
+      <h2 style="margin-top:0;">Weather Dashboards</h2>
+      <p class="subtle">Windy overview beside high-resolution model output for the Chicago area.</p>
+      <div class="widget-grid">
+        <div>
+          <h3>Windy Wind Map</h3>
+          <iframe
+            title="Windy Wind Map"
+            src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=%C2%B0C&metricWind=kt&zoom=6&overlay=wind&product=ecmwf&level=surface&lat=41.515&lon=-87.69&detailLat=42.045&detailLon=-87.693&detail=true&pressure=true"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div>
+          <h3>HRRR Surface Fields</h3>
+          <iframe
+            title="Pivotal Weather HRRR"
+            src="https://beta.pivotalweather.com/models/hrrr/sfct-imp/us_mw?run=2025110406&forecastHour=3&lat=42.03&lon=-87.67"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+      <p class="widget-note" style="font-size: 1.1rem;">
+        Aviation weather text products (METAR/TAF) for KORD are available at
+        <a href="https://aviationweather.gov/data/metar/?decoded=1&amp;ids=KORD&amp;taf=1" target="_blank" rel="noopener">aviationweather.gov</a>.
+      </p>
     </section>
   </main>
 
