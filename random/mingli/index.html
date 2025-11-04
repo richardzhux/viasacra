@@ -2,25 +2,25 @@
 <html lang="en"><head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>面相入门观察 — 笔记 | Viasacra</title>
-<link rel="stylesheet" href="assets/style.css" />
+<title>中国古代命理学 — 笔记 | Viasacra</title>
+<link rel="stylesheet" href="../../shared/styles/site.css" />
 </head><body>
 <header class="nav"><div class="wrap">
-<a class="brand" href="index.html">Viasacra</a>
+<a class="brand" href="../../home/index.html">Viasacra</a>
 <nav>
-  <a href="about.html">About</a>
-  <a href="projects.html">Projects</a>
-  <a href="meditations.html">Meditations</a>
-  <a href="random.html">Random</a>
-  <a href="lux.html">Lux</a>
-  <a href="travel.html">Travel</a>
+  <a href="../../about/index.html">About</a>
+  <a href="../../projects/index.html">Projects</a>
+  <a href="../../meditations/index.html">Meditations</a>
+  <a href="../index.html">Random</a>
+  <a href="../../lux/index.html">Lux</a>
+  <a href="../../travel/index.html">Travel</a>
 </nav></div></header>
 <main class="wrap essay-page">
   <article class="essay">
     <header class="essay-header">
       <p class="essay-label">Notebook</p>
-      <h1>面相入门观察 — 结构与气色笔记</h1>
-      <p class="essay-subhead">Reading the classic “three stops,” twelve palaces, and the subtle glow of qi as a portrait of a life unfolding across time.</p>
+      <h1>中国古代命理学 — 王德峰讲义笔记</h1>
+      <p class="essay-subhead">Reading fate through calendars, five elements, and the quiet pragmatism of Wang Defeng’s metaphysics lectures.</p>
     </header>
     <div class="essay-body" id="essayBody">
       <p class="essay-loading">加载笔记中…</p>
@@ -28,12 +28,12 @@
   </article>
 </main>
 <footer class="foot"><small>© <span id="year"></span> Richard Zhu</small></footer>
-<script src="assets/site.js"></script>
+<script src="../../shared/scripts/site.js"></script>
 <script>
 (async function loadEssay(){
   const body = document.getElementById("essayBody");
   try{
-    const res = await fetch("assets/mianxiang-article.html");
+    const res = await fetch("./article.html");
     if(!res.ok) throw new Error("load failed");
     const html = await res.text();
     body.innerHTML = html;

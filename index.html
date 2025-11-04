@@ -2,115 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <meta http-equiv="refresh" content="0; url=home/" />
+  <title>Viasacra — Redirect</title>
+  <link rel="canonical" href="home/" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Viasacra — Richard Zhu</title>
-  <meta name="description" content="Law × Astrophysics × Design — a personal archive of calm clarity.">
-  <link rel="stylesheet" href="assets/style.css" />
-  <link rel="icon" href="favicon.ico" />
-
-  <!-- Leaflet (no SRI, HTTPS) -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="anonymous">
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous"></script>
-
-  <!-- Page-scoped safety styles in case site-wide CSS is missing -->
-  <style>
-    .map-gallery { padding: 12px 0 40px; }
-    .gallery-header { display:flex; justify-content:space-between; align-items:center; margin:4px 0 12px; }
-    .gallery-header h2 { margin:0; }
-    .controls { display:flex; align-items:center; gap:10px; }
-    .muted { color: #78716c; }
-    .btn { display:inline-block; padding:8px 12px; border:1px solid #e7e0d6; border-radius:12px; background:#faf7f2; cursor:pointer; }
-    .btn:hover { filter:brightness(.98); }
-
-    .slides { position:relative; overflow:hidden; }
-    .slide { min-height: 520px; }
-    .slide:not(.active) { display:none; }
-    .slide h3 { margin:6px 0 10px; }
-    .map { width:100%; min-height:420px; height:420px; border:1px solid #e7e0d6; border-radius:14px; background:#fff; }
-    .legend { list-style:none; padding:8px 0 0; margin:0; color:#78716c; display:flex; gap:16px; }
-
-    /* Rotating greeting fade */
-    #greeting { display:inline-block; transition: opacity .35s ease; }
-    #greeting.is-fading { opacity: 0; }
-  </style>
 </head>
 <body>
-  <header class="nav">
-    <div class="wrap">
-      <a class="brand" href="index.html">Viasacra</a>
-      <nav>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="meditations.html">Meditations</a>
-        <a href="random.html">Random</a>
-        <a href="lux.html">Lux</a>
-        <a href="travel.html">Travel</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <!-- Hi / hero -->
-    <section class="hero hero-cover">
-      <div class="hero-content wrap">
-        <h1><span id="greeting">Hi — how are you today?</span></h1>
-        <p>Law × Physics × Design. Building quiet, useful things.</p>
-      </div>
-    </section>
-
-    <!-- Map slider -->
-    <section class="map-gallery">
-      <div class="wrap">
-        <div class="gallery-header">
-          <h2>Places with Gravity</h2>
-          <div class="controls">
-            <button class="btn" id="prevSlide" aria-label="Previous">&#8592;</button>
-            <span id="slideLabel" class="muted"></span>
-            <button class="btn" id="nextSlide" aria-label="Next">&#8594;</button>
-          </div>
-        </div>
-
-        <div class="slides" id="mapSlides">
-          <!-- Slide 1: Chicago -->
-          <article class="slide">
-            <h3>CHICAGO</h3>
-            <div class="map" id="map-chicago" role="img" aria-label="Map of Chicago"></div>
-            <ul class="legend">
-              <li>❤️ = love / life</li>
-              <li>🏛️ = study</li>
-              <li>💼 = work</li>
-            </ul>
-          </article>
-
-          <!-- Slide 2: Los Angeles (UCLA) -->
-          <article class="slide">
-            <h3>Los Angeles (UCLA)</h3>
-            <div class="map" id="map-la" role="img" aria-label="Map of UCLA"></div>
-            <ul class="legend">
-              <li>❤️ = love / life</li>
-              <li>🏛️ = study</li>
-              <li>💼 = work</li>
-            </ul>
-          </article>
-
-          <!-- Slide 3: Beijing -->
-          <article class="slide">
-            <h3>Beijing</h3>
-            <div class="map" id="map-beijing" role="img" aria-label="Map of Beijing"></div>
-            <ul class="legend">
-              <li>❤️ = love / life</li>
-              <li>🏛️ = study</li>
-              <li>💼 = work</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="foot"><small>© <span id="year"></span> Richard Zhu</small></footer>
-
-  <script src="assets/site.js?v=6"></script>
-
+  <p>Redirecting to <a href="home/">Viasacra</a>…</p>
 </body>
 </html>

@@ -71,7 +71,7 @@ main{padding-top:var(--nav-height);}
   z-index:0;
 }
 .hero-cover{
-  background:url("../Rome 4K Background.jpg") center/cover no-repeat;
+  background:url("../images/rome-4k-background.jpg") center/cover no-repeat;
 }
 .hero-content{
   position:relative;
