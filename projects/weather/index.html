@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weather Dashboards — Projects — Viasacra</title>
+  <link rel="stylesheet" href="../../shared/styles/site.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="../../home/index.html"><span class="brand-letter brand-letter--v">V</span><span class="brand-rest">ia</span><span class="brand-letter brand-letter--s">S</span><span class="brand-rest">acra</span></a>
+      <nav>
+        <a href="../../about/index.html">About</a>
+        <a class="active" href="../index.html">Projects</a>
+        <a href="../../meditations/index.html">Meditations</a>
+        <a href="../../random/index.html">Random</a>
+        <a href="../../lux/index.html">Lux</a>
+        <a href="../../travel/index.html">Travel</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap project-detail">
+    <header class="project-detail__header">
+      <a class="project-detail__back" href="../index.html">← Back to projects</a>
+      <h1>Weather Dashboards</h1>
+      <p class="project-detail__lead">Synoptic handoffs for pilots: a Windy layer overview paired with HRRR surface fields.</p>
+    </header>
+
+    <section class="project-detail__body">
+      <div class="project-detail__grid">
+        <article class="project-detail__panel">
+          <h2>Windy Wind Map</h2>
+          <iframe
+            title="Windy Wind Map"
+            src="https://embed.windy.com/embed.html?type=map&amp;location=coordinates&amp;metricRain=mm&amp;metricTemp=%C2%B0C&amp;metricWind=kt&amp;zoom=6&amp;overlay=wind&amp;product=ecmwf&amp;level=surface&amp;lat=41.515&amp;lon=-87.69&amp;detailLat=42.045&amp;detailLon=-87.693&amp;detail=true&amp;pressure=true"
+            loading="lazy"
+            allowfullscreen></iframe>
+        </article>
+        <article class="project-detail__panel">
+          <h2>HRRR Surface Fields</h2>
+          <iframe
+            title="Pivotal Weather HRRR"
+            src="https://beta.pivotalweather.com/models/hrrr/sfct-imp/us_mw?run=2025110406&amp;forecastHour=3&amp;lat=42.03&amp;lon=-87.67"
+            loading="lazy"
+            allowfullscreen></iframe>
+        </article>
+      </div>
+      <p class="project-detail__note">For METAR/TAF text feeds, visit <a href="https://aviationweather.gov/data/metar/?decoded=1&amp;ids=KORD&amp;taf=1" target="_blank" rel="noopener">aviationweather.gov</a>.</p>
+    </section>
+  </main>
+
+  <footer class="foot"><small>© <span id="year"></span> Richard Zhu</small></footer>
+  <script src="../../shared/scripts/site.js"></script>
+</body>
+</html>

@@ -5,19 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Projects — Viasacra</title>
   <link rel="stylesheet" href="../shared/styles/site.css" />
-  <!-- Gradio web component for the embedded HF app -->
-  <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/5.41.1/gradio.js"></script>
-  <style>
-    .subtle { color: var(--muted); }
-    .embed-wrap { max-width: 980px; margin: 24px auto; }
-    .embed-wrap gradio-app { display:block; width:100%; min-height:760px; }
-    .proj-intro { margin: 8px 0 24px; }
-    .proj-card { padding: 16px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
-    .widget-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); margin-top: 16px; }
-    .widget-grid iframe { width: 100%; min-height: 450px; border: 0; border-radius: var(--radius); background: #fff; }
-    .widget-grid h3 { margin: 0 0 8px; font-size: 1rem; }
-    .widget-note { margin-top: 12px; font-size: 0.9rem; color: var(--muted); }
-  </style>
 </head>
 <body>
   <header class="nav">
@@ -34,46 +21,32 @@
     </div>
   </header>
 
-  <main class="wrap">
-    <h1>Projects</h1>
-    <p class="proj-intro subtle">Selected interactive tools and experiments.</p>
+  <main class="wrap projects-page">
+    <header class="projects-header">
+      <h1>Projects</h1>
+      <p class="projects-lead">Interactive tools and fieldwork, distilled into self-contained studies.</p>
+    </header>
 
-    <!-- I Ching project embedded directly -->
-    <section class="proj-card">
-      <h2 style="margin-top:0;">I Ching</h2>
-      <p class="subtle">Interactive divination tool embedded from Hugging Face.</p>
-      <div class="embed-wrap">
-        <gradio-app src="https://supremerx7-iching.hf.space"></gradio-app>
-      </div>
-    </section>
+    <section class="projects-grid">
+      <a class="project-card" href="./iching/index.html">
+        <img src="./bagua.png" alt="Abstract Bagua diagram in soft gold and black" loading="lazy" />
+        <div class="project-card__overlay">
+          <span class="project-card__tag">Divination</span>
+          <h2 class="project-card__title">I Ching</h2>
+          <p class="project-card__desc">Throw coins, read changing lines, and sit inside the ritual counsel of the Book of Changes.</p>
+          <span class="project-card__cta">View project →</span>
+        </div>
+      </a>
 
-    <section class="proj-card">
-      <h2 style="margin-top:0;">Weather Dashboards</h2>
-      <p class="subtle">Windy overview beside high-resolution model output for the Chicago area.</p>
-      <div class="widget-grid">
-        <div>
-          <h3>Windy Wind Map</h3>
-          <iframe
-            title="Windy Wind Map"
-            src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=%C2%B0C&metricWind=kt&zoom=6&overlay=wind&product=ecmwf&level=surface&lat=41.515&lon=-87.69&detailLat=42.045&detailLon=-87.693&detail=true&pressure=true"
-            loading="lazy"
-            allowfullscreen>
-          </iframe>
+      <a class="project-card project-card--light" href="./weather/index.html">
+        <img src="./weatherUS.png" alt="Weather maps collage for the United States" loading="lazy" />
+        <div class="project-card__overlay">
+          <span class="project-card__tag">Aviation Weather</span>
+          <h2 class="project-card__title">Weather Dashboards</h2>
+          <p class="project-card__desc">Windy synoptics alongside high-resolution model output tuned for Chicago departures.</p>
+          <span class="project-card__cta">View project →</span>
         </div>
-        <div>
-          <h3>HRRR Surface Fields</h3>
-          <iframe
-            title="Pivotal Weather HRRR"
-            src="https://beta.pivotalweather.com/models/hrrr/sfct-imp/us_mw?run=2025110406&forecastHour=3&lat=42.03&lon=-87.67"
-            loading="lazy"
-            allowfullscreen>
-          </iframe>
-        </div>
-      </div>
-      <p class="widget-note" style="font-size: 1.1rem;">
-        Aviation weather text products (METAR/TAF) for KORD are available at
-        <a href="https://aviationweather.gov/data/metar/?decoded=1&amp;ids=KORD&amp;taf=1" target="_blank" rel="noopener">aviationweather.gov</a>.
-      </p>
+      </a>
     </section>
   </main>
 

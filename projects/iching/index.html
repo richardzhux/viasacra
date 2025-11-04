@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>I Ching — Projects — Viasacra</title>
+  <link rel="stylesheet" href="../../shared/styles/site.css" />
+  <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/5.41.1/gradio.js"></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="../../home/index.html"><span class="brand-letter brand-letter--v">V</span><span class="brand-rest">ia</span><span class="brand-letter brand-letter--s">S</span><span class="brand-rest">acra</span></a>
+      <nav>
+        <a href="../../about/index.html">About</a>
+        <a class="active" href="../index.html">Projects</a>
+        <a href="../../meditations/index.html">Meditations</a>
+        <a href="../../random/index.html">Random</a>
+        <a href="../../lux/index.html">Lux</a>
+        <a href="../../travel/index.html">Travel</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap project-detail">
+    <header class="project-detail__header">
+      <a class="project-detail__back" href="../index.html">← Back to projects</a>
+      <h1>I Ching</h1>
+      <p class="project-detail__lead">A contemplative divination console, pairing traditional hexagram casting with commentary excerpts.</p>
+    </header>
+
+    <section class="project-detail__body">
+      <div class="project-detail__embed">
+        <gradio-app src="https://supremerx7-iching.hf.space"></gradio-app>
+      </div>
+      <p class="project-detail__note">Hosted via Hugging Face Spaces with a Gradio front-end. Locally, run <code>iching5.py</code> inside the companion repository to explore the full dialogue interface.</p>
+    </section>
+  </main>
+
+  <footer class="foot"><small>© <span id="year"></span> Richard Zhu</small></footer>
+  <script src="../../shared/scripts/site.js"></script>
+</body>
+</html>
