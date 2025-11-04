@@ -57,11 +57,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }, 200);
   }
 
-  i = Math.floor(Math.random() * greetings.length);
-
-  // If you want to avoid English on first load, use this line instead:
-  // i = 1 + Math.floor(Math.random() * (greetings.length - 1));
-
+  i = 1+ Math.floor(Math.random() * (greetings.length - 1));
   swap(i);
     setInterval(() => {
     i = (i + 1) % greetings.length;
@@ -86,23 +82,16 @@ const icon = (emoji) => L.divIcon({
 
 // Add a nice light basemap (Carto Positron) with OSM fallback
 function addTiles(map) {
+  // Primary: OpenStreetMap standard
   const primary = L.tileLayer(
-    "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-    {
-      attribution: "© OpenStreetMap contributors © CARTO",
-      subdomains: "abcd",
-      maxZoom: 19,
-      detectRetina: true
-    }
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    { attribution: "© OpenStreetMap contributors", maxZoom: 19 }
   );
 
+  // Fallback: Carto Positron (light)
   const fallback = L.tileLayer(
-    "https://tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",
-    {
-      attribution: "© OpenStreetMap France",
-      maxZoom: 19,
-      detectRetina: true
-    }
+    "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+    { attribution: "© OpenStreetMap contributors © CARTO", subdomains: "abcd", maxZoom: 19 }
   );
 
   primary.on("tileerror", () => {
@@ -115,6 +104,7 @@ function addTiles(map) {
 
   primary.addTo(map);
 }
+
 
 function initMapsIfPresent() {
   // Wait for Leaflet to be available

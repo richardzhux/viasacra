@@ -1,18 +1,15 @@
 /* Sitewide font: Palatino */
 html { font-size: 16px; }
 
-body{
-  margin:0;
+body {
+  margin: 0;
   font-family: "Palatino", "Palatino Linotype", "Book Antiqua", "URW Palladio L", Georgia, serif;
-  line-height:1.6;
-  color:var(--ink);
-  background:linear-gradient(#f8f6f2,var(--paper));
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  font-variant-ligatures: common-ligatures;
-  font-feature-settings: "liga" 1, "calt" 1;
+  line-height: 1.6;
+  color: var(--ink);
+  background: linear-gradient(#f8f6f2, var(--paper));
 }
+
+
 
 /* Leaflet permanent labels */
 .map-label {
