@@ -124,10 +124,10 @@ function initMapsIfPresent() {
 
   // --- Slide 1: Chicago (closer default zoom)
   const mapChi = L.map("map-chicago", { scrollWheelZoom: false, zoomControl: true })
-    .setView([41.89, -87.65], 14); // was 11 → tighter view
+    .setView([41.953752, -87.646160], 10); // was 11 → tighter view
   addTiles(mapChi);
 
-  L.marker([42.0560, -87.6752], { icon: icon("🏛️") })
+  L.marker([42.0560, -87.6752], { icon: icon("❤️") })
     .addTo(mapChi)
     .bindPopup("<b>Northwestern — Evanston</b><br>2023–2026 • Physics & Legal Studies (Classics minor)")
     .bindTooltip("Northwestern — Evanston", {
@@ -143,10 +143,10 @@ function initMapsIfPresent() {
 
   // --- Slide 2: Los Angeles (UCLA)
   const mapLA = L.map("map-la", { scrollWheelZoom: false })
-    .setView([34.070, -118.445], 13);
+    .setView([34.070, -118.445], 14);
   addTiles(mapLA);
 
-  L.marker([34.0716, -118.4513], { icon: icon("❤️") })
+  L.marker([34.070199, -118.45105764], { icon: icon("❤️") })
     .addTo(mapLA)
     .bindPopup("<b>UCLA — De Neve Birch</b><br>memories / love")
     .bindTooltip("UCLA — De Neve Birch", {
@@ -162,10 +162,10 @@ function initMapsIfPresent() {
 
   // --- Slide 3: Beijing
   const mapBJ = L.map("map-beijing", { scrollWheelZoom: false })
-    .setView([39.9395, 116.3596], 12);
+    .setView([39.909854, 116.362622], 13);
   addTiles(mapBJ);
 
-  L.marker([39.9395, 116.3596], { icon: icon("🏛️") })
+  L.marker([39.909854, 116.362622], { icon: icon("🏛️") })
     .addTo(mapBJ)
     .bindPopup("<b>Experimental High School Affiliated to BNU</b>")
     .bindTooltip("BNU Experimental High School", {

@@ -9,8 +9,6 @@ body {
   background: linear-gradient(#f8f6f2, var(--paper));
 }
 
-
-
 /* Leaflet permanent labels */
 .map-label {
   background: rgba(255, 255, 255, 0.9);
