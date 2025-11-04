@@ -198,4 +198,53 @@ function initMapsIfPresent() {
   show(0);
 }
 
-document.addEventListener("DOMContentLoaded", initMapsIfPresent);
+function initLuxMasonry() {
+  const grid = document.querySelector(".lux-grid");
+  if (!grid) return;
+
+  const items = Array.from(grid.querySelectorAll(".lux-piece"));
+
+  function computeSpan(item) {
+    const img = item.querySelector("img");
+    if (!img) return;
+
+    const rowHeight = parseFloat(getComputedStyle(grid).getPropertyValue("grid-auto-rows")) || 8;
+    const rowGap = parseFloat(getComputedStyle(grid).getPropertyValue("row-gap")) || 0;
+    const naturalWidth = img.naturalWidth;
+    const naturalHeight = img.naturalHeight;
+    const width = item.getBoundingClientRect().width;
+    if (!naturalWidth || !naturalHeight || !width) return;
+
+    const height = width * (naturalHeight / naturalWidth);
+    const span = Math.max(1, Math.ceil((height + rowGap) / (rowHeight + rowGap)));
+
+    item.style.gridRowEnd = `span ${span}`;
+    item.style.height = `${span * rowHeight + Math.max(0, span - 1) * rowGap}px`;
+  }
+
+  items.forEach(item => {
+    const img = item.querySelector("img");
+    if (!img) return;
+    if (img.complete && img.naturalHeight) {
+      computeSpan(item);
+    } else {
+      const adjust = () => computeSpan(item);
+      img.addEventListener("load", adjust, { once: true });
+      img.addEventListener("error", adjust, { once: true });
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    items.forEach(computeSpan);
+  });
+
+  // in case fonts or layout shift after load
+  window.addEventListener("load", () => {
+    items.forEach(computeSpan);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initMapsIfPresent();
+  initLuxMasonry();
+});
