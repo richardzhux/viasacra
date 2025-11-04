@@ -3,7 +3,7 @@ commit:
 	@current_time=$$(date "+%Y-%m-%d %H:%M:%S") && \
 	git add . && \
 	git commit -m "AC @ $$current_time" && \
-	git push origin main
+	$(MAKE) push
 
 push:
 	@echo "Syncing and pushing main..."
