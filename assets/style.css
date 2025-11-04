@@ -1,15 +1,39 @@
+/* Sitewide font: Palatino */
+html { font-size: 16px; }
+
+body{
+  margin:0;
+  font-family: "Palatino", "Palatino Linotype", "Book Antiqua", "URW Palladio L", Georgia, serif;
+  line-height:1.6;
+  color:var(--ink);
+  background:linear-gradient(#f8f6f2,var(--paper));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-variant-ligatures: common-ligatures;
+  font-feature-settings: "liga" 1, "calt" 1;
+}
+
+/* Leaflet permanent labels */
+.map-label {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e7e0d6;
+  border-radius: 12px;
+  padding: 4px 8px;
+  font-size: 14.5px;
+  color: #222;
+  box-shadow: 0 6px 14px rgba(0,0,0,.08);
+}
+.leaflet-tooltip-top:before { border-top-color: #e7e0d6; }
+
+
 :root {
   --paper:#f6f3ee; --sand:#efe9df; --ink:#1f1f1f;
   --muted:#6c6c6c; --accent:#9a7b43; --line:#e6e0d6;
   --radius:18px; --max:980px; --shadow:0 8px 24px rgba(0,0,0,.06);
 }
 *{box-sizing:border-box}
-body{
-  margin:0;
-  font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-  color:var(--ink);
-  background:linear-gradient(#f8f6f2,var(--paper));
-}
+
 .wrap{max-width:var(--max);margin:0 auto;padding:24px;}
 .nav{
   position:sticky;top:0;
