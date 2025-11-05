@@ -381,6 +381,15 @@ button#cta{
   display:block;
   width:100%;
   min-height:760px;
+  border:0;
+  background:#fff;
+}
+.project-detail__embed iframe{
+  display:block;
+  width:100%;
+  height:clamp(760px,90vh,1080px);
+  border:0;
+  background:#fff;
 }
 .project-detail__grid{
   display:grid;

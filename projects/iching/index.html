@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>I Ching — Projects — Viasacra</title>
   <link rel="stylesheet" href="../../shared/styles/site.css" />
-  <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/5.41.1/gradio.js"></script>
 </head>
 <body>
   <header class="nav">
@@ -31,9 +30,9 @@
 
     <section class="project-detail__body">
       <div class="project-detail__embed">
-        <gradio-app src="https://supremerx7-iching.hf.space"></gradio-app>
+        <iframe src="https://iching1.streamlit.app/?embed=true" title="I Ching divination console" loading="lazy"></iframe>
       </div>
-      <p class="project-detail__note">Hosted via Hugging Face Spaces with a Gradio front-end. Locally, run <code>iching5.py</code> inside the companion repository to explore the full dialogue interface.</p>
+      <p class="project-detail__note">Hosted via Streamlit. Locally, run <code>iching5.py</code> inside the companion repository to explore the full dialogue interface.</p>
     </section>
   </main>
 
