@@ -2,7 +2,7 @@ commit:
 	@echo "Running auto commit with current timestamp..."
 	@current_time=$$(date "+%Y-%m-%d %H:%M:%S") && \
 	git add . && \
-	git commit -m "AC @ $$current_time" && \
+	git commit -m "Added G Analytics @ $$current_time" && \
 	$(MAKE) push
 
 push:
