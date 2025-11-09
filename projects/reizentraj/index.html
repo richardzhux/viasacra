@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4CVV2Q9HQQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4CVV2Q9HQQ');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Interactive Travelogue — Projects — Viasacra</title>
+  <link rel="stylesheet" href="../../shared/styles/site.css" />
+  <style>
+    .project-detail__grid.reizentraj-gallery{
+      grid-template-columns:1fr;
+      gap:32px;
+    }
+    .project-detail__panel--nocturne{
+      gap:16px;
+      background:#1b0f22;
+      border:1px solid rgba(255,214,153,.2);
+      box-shadow:0 32px 64px rgba(5,1,12,.4);
+      color:#f8efe2;
+    }
+    .project-detail__panel--nocturne h2{
+      color:#ffe6bd;
+    }
+    .project-detail__panel--nocturne p{
+      margin:0;
+      color:rgba(248,240,231,.86);
+    }
+    .reizentraj-gallery__img{
+      width:100%;
+      display:block;
+      border-radius:16px;
+      object-fit:cover;
+      aspect-ratio:3 / 2;
+      height:auto;
+      box-shadow:var(--shadow-soft,0 18px 40px rgba(8,12,20,.18));
+      cursor:zoom-in;
+      transition:transform .35s ease, box-shadow .35s ease;
+    }
+    .reizentraj-gallery__img:hover{
+      transform:scale(1.01);
+      box-shadow:0 30px 60px rgba(8,12,20,.24);
+    }
+    .reizentraj-lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(3,5,12,.88);
+      backdrop-filter:blur(6px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      visibility:hidden;
+      opacity:0;
+      transition:opacity .35s ease, visibility 0s linear .35s;
+      z-index:2000;
+    }
+    .reizentraj-lightbox.is-visible{
+      visibility:visible;
+      opacity:1;
+      transition-delay:0s;
+    }
+    .reizentraj-lightbox__content{
+      position:relative;
+      max-width:min(1080px,92vw);
+      max-height:90vh;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .reizentraj-lightbox__img{
+      width:100%;
+      max-height:80vh;
+      object-fit:contain;
+      border-radius:20px;
+      box-shadow:0 40px 90px rgba(0,0,0,.45);
+      background:#000;
+    }
+    .reizentraj-lightbox__caption{
+      color:#f7f2e9;
+      font-size:0.95rem;
+      line-height:1.5;
+      text-align:center;
+    }
+    .reizentraj-lightbox__close{
+      position:absolute;
+      top:-12px;
+      right:-12px;
+      border:none;
+      background:#0f141f;
+      color:#fff;
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      font-size:1.3rem;
+      cursor:pointer;
+      box-shadow:0 18px 30px rgba(0,0,0,.35);
+    }
+    @media(max-width:720px){
+      .reizentraj-lightbox__close{
+        top:-8px;
+        right:-8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="../../home/index.html"><span class="brand-letter brand-letter--v">V</span><span class="brand-rest">ia</span><span class="brand-letter brand-letter--s">S</span><span class="brand-rest">acra</span></a>
+      <nav>
+        <a href="../../about/index.html">About</a>
+        <a class="active" href="../index.html">Projects</a>
+        <a href="../../meditations/index.html">Meditations</a>
+        <a href="../../random/index.html">Random</a>
+        <a href="../../lux/index.html">Lux</a>
+        <a href="../../travel/index.html">Travel</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap project-detail">
+    <header class="project-detail__header">
+      <a class="project-detail__back" href="../index.html">← Back to projects</a>
+      <h1>Interactive Travelogue</h1>
+      <p class="project-detail__lead">Reizentraj turns two years of Google Takeout telemetry into a cinematic control room—privacy-aware playback, flight detection, and live basemap swaps bundled into a shareable explorer.</p>
+    </header>
+
+    <section class="project-detail__body">
+      <p>The toolkit ingests raw <code>Records.json</code> exports, coarsens sensitive corridors, and ships a self-contained deck.gl + MapLibre experience in seconds. Under the hood, <code>trajectory.py</code> orchestrates jump-threshold flight inference, rainbow palette recolouring, optional country/state stats via <code>reverse_geocoder</code>, and hardened no-fly carve-outs for Chicago and Beijing. The result is an investor-ready cockpit where every slider, toggle, and basemap drives a narrative about expansion, retention, and operational discipline.</p>
+
+      <div class="project-detail__grid reizentraj-gallery">
+        <article class="project-detail__panel project-detail__panel--nocturne">
+          <img class="reizentraj-gallery__img" src="./assets/rainbow-timeline.png" alt="Rainbow-colored timeline" loading="lazy" data-caption="Rainbow Timeline — visualize seasonal cadence, expansion bursts, and pause cycles at a glance." tabindex="0" />
+          <h2>Rainbow Timeline</h2>
+          <p>The gradient playback rail visualizes seasonal cadence, instantly communicating expansion pace, pause cycles, and opportunity gaps to stakeholders skimming for momentum.</p>
+        </article>
+        <article class="project-detail__panel project-detail__panel--nocturne">
+          <img class="reizentraj-gallery__img" src="./assets/rainbow-worldview.png" alt="Global rainbow worldview map" loading="lazy" data-caption="Rainbow Worldview — swap MapLibre styles but keep the chromatic narrative intact from street grid to globe." tabindex="0" />
+          <h2>Rainbow Worldview</h2>
+          <p>MapLibre style swaps (Voyager, Positron, Dark Matter, or custom URLs) keep the same rainbow palette consistent across continents so the narrative scales from street grid to globe without retooling.</p>
+        </article>
+        <article class="project-detail__panel project-detail__panel--nocturne">
+          <img class="reizentraj-gallery__img" src="./assets/flight-path.png" alt="Flight path arc visualization" loading="lazy" data-caption="Flightpath Intelligence — detect long hops automatically and render ✈︎ arcs so you can dwell on each segment without leaving the map." tabindex="0" />
+          <h2>Flightpath Intelligence</h2>
+          <p>Jump-threshold logic from <code>trajectory.py</code> converts long hops into ✈︎ arcs, letting operators freeze playback, inspect each leg, and compare scheduled versus actual dwell times without leaving the map.</p>
+        </article>
+        <article class="project-detail__panel project-detail__panel--nocturne">
+          <img class="reizentraj-gallery__img" src="./assets/places.jpg" alt="Places and region intelligence dashboard" loading="lazy" data-caption="Places Ledger — auto-summarize countries, states, and anchor neighborhoods for defensible market penetration narratives." tabindex="0" />
+          <h2>Places Ledger</h2>
+          <p>Optional <code>reverse_geocoder</code> + <code>pycountry</code> enrichments auto-summarize countries, states, and anchor neighborhoods so every investor deck comes with defensible market penetration stats.</p>
+        </article>
+        <article class="project-detail__panel project-detail__panel--nocturne">
+          <img class="reizentraj-gallery__img" src="./assets/dynamic-play-trail.jpg" alt="Collage describing the dynamic playback controls" loading="lazy" data-caption="Dynamic Play Trail — drag the floating console, scrub the rainbow timeline, and keep timestamps, trail length, and exploration mode synchronized." tabindex="0" />
+          <h2>Dynamic Play Trail</h2>
+          <p>The draggable console scrubs a multi-year timeline at variable speeds, keeping timestamp readouts, trail length, and exploration mode wired to the same state machine so story beats never fall out of sync.</p>
+        </article>
+      </div>
+
+      <p>This is my personal travel history across the two years leading into October 2023, filtered through Safety Mode so trajectories are coarse, timestamps collapsed, and no precise anchors (home, workplaces, favorite spots, or hotels) survive—yet you can still swap map styles, inspect the country/state/prefecture counters, and pull total distance tallies whenever you need signal.</p>
+
+      <div class="project-detail__embed">
+        <iframe src="./reizentraj.html" title="Reizentraj interactive travelogue" loading="lazy" allowfullscreen></iframe>
+      </div>
+    </section>
+  </main>
+
+  <div class="reizentraj-lightbox" aria-hidden="true">
+    <figure class="reizentraj-lightbox__content">
+      <button class="reizentraj-lightbox__close" type="button" aria-label="Close">×</button>
+      <img class="reizentraj-lightbox__img" src="" alt="" />
+      <figcaption class="reizentraj-lightbox__caption"></figcaption>
+    </figure>
+  </div>
+
+  <footer class="foot"><small>© <span id="year"></span> Richard Zhu</small></footer>
+  <script src="../../shared/scripts/site.js"></script>
+  <script>
+    (function(){
+      const triggers = document.querySelectorAll('.reizentraj-gallery__img');
+      const lightbox = document.querySelector('.reizentraj-lightbox');
+      if(!lightbox || !triggers.length){return;}
+      const lightboxImg = lightbox.querySelector('.reizentraj-lightbox__img');
+      const lightboxCaption = lightbox.querySelector('.reizentraj-lightbox__caption');
+      const closeBtn = lightbox.querySelector('.reizentraj-lightbox__close');
+      const close = () => {
+        lightbox.classList.remove('is-visible');
+        lightbox.setAttribute('aria-hidden','true');
+        document.body.style.overflow='';
+      };
+      const open = (img) => {
+        if(!img){return;}
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt || '';
+        lightboxCaption.textContent = img.dataset.caption || img.alt || '';
+        lightbox.classList.add('is-visible');
+        lightbox.setAttribute('aria-hidden','false');
+        document.body.style.overflow='hidden';
+        closeBtn.focus();
+      };
+      triggers.forEach((img) => {
+        img.addEventListener('click', () => open(img));
+        img.addEventListener('keydown', (event) => {
+          if(event.key === 'Enter' || event.key === ' '){
+            event.preventDefault();
+            open(img);
+          }
+        });
+      });
+      closeBtn.addEventListener('click', close);
+      lightbox.addEventListener('click', (event) => {
+        if(event.target === lightbox){
+          close();
+        }
+      });
+      document.addEventListener('keydown', (event) => {
+        if(event.key === 'Escape' && lightbox.classList.contains('is-visible')){
+          close();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
