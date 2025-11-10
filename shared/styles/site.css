@@ -1,13 +1,43 @@
 /* Sitewide font: Palatino */
-html { font-size: 16px; }
-
+html,
 body {
-  margin: 0;
+  font-size: 16px;
   font-family: "Palatino", "Palatino Linotype", "Book Antiqua", "URW Palladio L", Georgia, serif;
   line-height: 1.6;
-  font-size: 1.0625rem;
+  --liquid-glow-1: 20% 20%;
+  --liquid-glow-2: 80% 0%;
+  --liquid-color-a: #9955bb;
+  --liquid-color-b: #52b2bf;
+  --liquid-color-c: #fc94af;
+  background-color: #0d0b1491; /* change this for overall vibrance/brightness */
+  min-height:100%;
   color: var(--ink);
-  background: linear-gradient(#f8f6f2, var(--paper));
+  margin: 0;
+}
+
+body {
+  position: relative;
+  z-index: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -15%;
+  z-index: -1;
+  background:
+    linear-gradient(145deg, var(--liquid-color-a) 0%, var(--liquid-color-b) 40%, var(--liquid-color-c) 100%),
+    radial-gradient(circle at var(--liquid-glow-1), rgba(252,148,175,.7), rgba(252, 148, 176,.2) 60%),
+    radial-gradient(circle at var(--liquid-glow-2), rgba(82,178,191,.7), rgba(82,178,191,.2) 55%);
+  background-color: #0d0b1491;
+  background-blend-mode: soft-light;
+  background-size: 200% 200%, 200% 200%, 200% 200%;
+  background-position: 0% 0%, 80% 0%, 20% 80%;
+  pointer-events: none;
+  will-change: transform;
+  animation: liquid-glass 15s ease-in-out infinite alternate;
+  transform-origin: center;
+  transform: translate3d(-6%, -4%, 0) scale(1.05);
 }
 
 /* Leaflet permanent labels */
@@ -47,14 +77,7 @@ body {
   min-height:var(--nav-height);
   z-index:20;
 }
-.nav::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to bottom,rgba(16,14,12,.55),rgba(16,14,12,0));
-  pointer-events:none;
-  z-index:0;
-}
+.nav::after{display:none;}
 .nav .wrap{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
 .brand{
   text-decoration:none;
@@ -142,7 +165,19 @@ button#cta{
 .foot{border-top:1px solid var(--line);padding:32px;text-align:center;color:var(--muted);}
 @media(prefers-color-scheme:dark){
   :root{--paper:#12110f;--sand:#191816;--ink:#f2efe8;--muted:#c0b8a8;--line:#2a2825;}
-  body{background:linear-gradient(#0f0e0c,var(--paper));}
+  html{background:linear-gradient(140deg,#1b0f1f,#0f2d32);}
+}
+
+@keyframes liquid-glass {
+  0% {
+    transform: translate3d(-6%, -4%, 0) scale(1.05);
+  }
+  50% {
+    transform: translate3d(5%, 3%, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-3%, 6%, 0) scale(1.04);
+  }
 }
 
 /* Map gallery */
