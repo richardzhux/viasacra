@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en"><head>
+<html lang="en">
+<head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4CVV2Q9HQQ"></script>
   <script>
@@ -10,69 +11,402 @@
     gtag('config', 'G-4CVV2Q9HQQ');
   </script>
 
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Lux — Viasacra</title>
-<link rel="stylesheet" href="../shared/styles/site.css" />
-</head><body>
-<header class="nav"><div class="wrap">
-<a class="brand" href="../home/index.html"><span class="brand-letter brand-letter--v">V</span><span class="brand-rest">ia</span><span class="brand-letter brand-letter--s">S</span><span class="brand-rest">acra</span></a>
-<nav>
-  <a href="../about/index.html">About</a>
-  <a href="../projects/index.html">Projects</a>
-  <a href="../meditations/index.html">Meditations</a>
-  <a href="../random/index.html">Random</a>
-  <a href="./index.html">Lux</a>
-  <a href="../travel/index.html">Travel</a>
-</nav></div></header>
-<main class="lux-page">
-  <section class="wrap lux-intro">
-    <h1>Lux</h1>
-    <p class="lead">Light studies from recent wanderings—places where texture, breath, and memory briefly align.</p>
-  </section>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lux — Viasacra</title>
+  <link rel="stylesheet" href="../shared/styles/site.css" />
+  <style>
+    .lux-page .project-detail__header{
+      padding-bottom:12px;
+    }
+    .lux-page .project-detail__lead{
+      font-size:1.05rem;
+      max-width:640px;
+      margin:0;
+      color:var(--muted);
+    }
+    .lux-gallery__grid{
+      column-count:1;
+      column-gap:18px;
+      margin-top:32px;
+    }
+    @media(min-width:720px){
+      .lux-gallery__grid{
+        column-count:2;
+      }
+    }
+    .lux-piece{
+      margin:0 0 18px;
+      break-inside:avoid;
+      display:block;
+    }
+    .lux-piece__img{
+      width:100%;
+      height:auto;
+      border-radius:0;
+      box-shadow:none;
+      display:block;
+      cursor:zoom-in;
+      transition:transform .25s ease;
+    }
+    .lux-piece__img:hover,
+    .lux-piece__img:focus-visible{
+      transform:scale(1.015);
+    }
+    .lux-piece__label{
+      text-transform:uppercase;
+      letter-spacing:0.32em;
+      font-size:0.75rem;
+      color:var(--muted);
+      display:block;
+    }
+    .lux-piece__title{
+      font-size:1.1rem;
+      font-weight:600;
+      margin:0;
+    }
+    .lux-piece__meta{
+      font-size:0.95rem;
+      color:var(--muted);
+      margin:0;
+    }
+    .lux-lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(4,4,12,.92);
+      backdrop-filter:blur(8px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
+      visibility:hidden;
+      opacity:0;
+      transition:opacity .35s ease, visibility 0s linear .35s;
+      z-index:2000;
+    }
+    .lux-lightbox.is-visible{
+      visibility:visible;
+      opacity:1;
+      transition-delay:0s;
+    }
+    .lux-lightbox__content{
+      position:relative;
+      max-width:min(1100px,92vw);
+      width:100%;
+      max-height:90vh;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .lux-lightbox__img{
+      width:100%;
+      max-height:80vh;
+      object-fit:contain;
+      border-radius:0;
+      background:#000;
+      box-shadow:0 32px 70px rgba(0,0,0,.55);
+    }
+    .lux-lightbox__caption{
+      color:#f4efe8;
+      font-size:0.95rem;
+      text-align:center;
+      line-height:1.5;
+    }
+    .lux-lightbox__close{
+      position:absolute;
+      top:-12px;
+      right:-12px;
+      border:none;
+      background:#171a23;
+      color:#fff;
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      font-size:1.3rem;
+      cursor:pointer;
+      box-shadow:0 16px 32px rgba(0,0,0,.4);
+    }
+  </style>
+</head>
+<body>
+  <header class="nav"><div class="wrap">
+  <a class="brand" href="../home/index.html"><span class="brand-letter brand-letter--v">V</span><span class="brand-rest">ia</span><span class="brand-letter brand-letter--s">S</span><span class="brand-rest">acra</span></a>
+  <nav>
+    <a href="../about/index.html">About</a>
+    <a href="../projects/index.html">Projects</a>
+    <a href="../meditations/index.html">Meditations</a>
+    <a href="../random/index.html">Random</a>
+    <a class="active" href="./index.html">Lux</a>
+    <a href="../travel/index.html">Travel</a>
+  </nav></div></header>
 
-  <section class="lux-gallery">
-    <div class="wrap">
-      <div class="lux-grid">
+  <main class="wrap project-detail lux-page">
+    <header class="project-detail__header">
+      <h1>Lux</h1>
+      <p class="project-detail__lead">Light studies from recent wanderings—places where texture, breath, and memory briefly align.</p>
+    </header>
+
+    <section class="project-detail__body">
+      <div class="lux-gallery__grid">
         <figure class="lux-piece">
-          <img src="images/2024-01-lake-michigan-flight.jpeg" alt="Drone view of frozen Lake Michigan under winter haze." />
+          <img class="lux-piece__img" src="images/2024-01-lake-michigan-flight.jpeg" alt="Drone view of frozen Lake Michigan under winter haze." loading="lazy" data-caption="Frozen Lake Michigan Flight — Drone pass over a sealed lake in subzero Chicago." />
           <figcaption>
             <span class="lux-piece__label">22 Jan 2024</span>
             <span class="lux-piece__title">Frozen Lake Michigan Flight</span>
             <span class="lux-piece__meta">Drone pass over a sealed lake in subzero Chicago.</span>
           </figcaption>
         </figure>
-
         <figure class="lux-piece">
-          <img src="images/2024-05-09-green-bay-aurora.jpeg" alt="Intense aurora curtains above Green Bay, Wisconsin." />
+          <img class="lux-piece__img" src="images/2024-05-09-green-bay-aurora.jpeg" alt="Intense aurora curtains above Green Bay, Wisconsin." loading="lazy" data-caption="Aurora over Green Bay — KP-9 storm after an overnight escape from Evanston." />
           <figcaption>
-            <span class="lux-piece__label">09 May 2024</span>
+            <span class="lux-piece__label">9 May 2024</span>
             <span class="lux-piece__title">Aurora over Green Bay</span>
             <span class="lux-piece__meta">KP-9 storm after an overnight escape from Evanston.</span>
           </figcaption>
         </figure>
-
         <figure class="lux-piece">
-          <img src="images/2024-07-stroksnesveen-midnight.jpg" alt="Midnight sun bathing an Arctic strawberry farm." />
+          <img class="lux-piece__img" src="images/2024-07-stroksnesveen-midnight.jpg" alt="Midnight sun bathing an Arctic strawberry farm." loading="lazy" data-caption="Midnight Strawberries, Stroksnesveen — Endless twilight with a kind host inside the Arctic Circle." />
           <figcaption>
             <span class="lux-piece__label">12 Jul 2024</span>
             <span class="lux-piece__title">Midnight Strawberries, Stroksnesveen</span>
             <span class="lux-piece__meta">Endless twilight with a kind host inside the Arctic Circle.</span>
           </figcaption>
         </figure>
-
         <figure class="lux-piece">
-          <img src="images/2021-08-14-siguniangshan-expedition.jpeg" alt="Morning light spilling across a Siguniangshan mountain lodge." />
+          <img class="lux-piece__img" src="images/2021-08-14-siguniangshan-expedition.jpeg" alt="Morning light spilling across a Siguniangshan mountain lodge." loading="lazy" data-caption="Siguniangshan Base Camp — First expedition morning with a new kit in Sichuan." />
           <figcaption>
             <span class="lux-piece__label">14 Aug 2021</span>
             <span class="lux-piece__title">Siguniangshan Base Camp</span>
             <span class="lux-piece__meta">First expedition morning with a new kit in Sichuan.</span>
           </figcaption>
         </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/BlueButterfly.jpeg" alt="Iridescent blue butterfly installation lit in saturated neon." loading="lazy" data-caption="Blue Butterfly Gleam — night installation marrying sculpture and projection mapping." />
+          <figcaption>
+            <span class="lux-piece__label">Spring 2024</span>
+            <span class="lux-piece__title">Blue Butterfly Gleam</span>
+            <span class="lux-piece__meta">Night installation marrying sculpture and projection mapping.</span>
+          </figcaption>
+        </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/BlueStarTrails.jpeg" alt="Blue star trails swirling above a silhouette of a skyline." loading="lazy" data-caption="Blue Star Trails — six-minute exposures spinning above a quiet rooftop in downtown Chicago." />
+          <figcaption>
+            <span class="lux-piece__label">Winter 2023</span>
+            <span class="lux-piece__title">Blue Star Trails</span>
+            <span class="lux-piece__meta">Six-minute exposures spinning above a quiet rooftop in downtown Chicago.</span>
+          </figcaption>
+        </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/BuddahGalaxy.jpeg" alt="Buddha statue haloed by a Milky Way sky." loading="lazy" data-caption="Buddha Galaxy — temple vigil lanterns with the Milky Way hanging overhead." />
+          <figcaption>
+            <span class="lux-piece__label">October 2022</span>
+            <span class="lux-piece__title">Buddha Galaxy</span>
+            <span class="lux-piece__meta">Temple vigil lanterns with the Milky Way hanging overhead.</span>
+          </figcaption>
+        </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/JinmaoInterior.jpeg" alt="Glass atrium at Jinmao Tower with layered light reflections." loading="lazy" data-caption="Jinmao Interior Light — skylit atrium reflections inside the tower's elevator banks." />
+          <figcaption>
+            <span class="lux-piece__label">Autumn 2023</span>
+            <span class="lux-piece__title">Jinmao Interior Light</span>
+            <span class="lux-piece__meta">Skylit atrium reflections inside the tower's elevator banks.</span>
+          </figcaption>
+        </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/LujiazuiTree.jpeg" alt="Tree silhouette anchored by the Lujiazui skyline at dusk." loading="lazy" data-caption="Lujiazui Tree Study — bare branches caught between Shanghai towers and a cobalt sky." />
+          <figcaption>
+            <span class="lux-piece__label">Winter 2023</span>
+            <span class="lux-piece__title">Lujiazui Tree Study</span>
+            <span class="lux-piece__meta">Bare branches caught between Shanghai towers and a cobalt sky.</span>
+          </figcaption>
+        </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/NianbaoyuzeSunset.jpeg" alt="Sunset glow over the Nianbaoyuze valley ridges." loading="lazy" data-caption="Nianbaoyuze Sunset — Tibetan ridgelines softened by the last rays before nightfall." />
+          <figcaption>
+            <span class="lux-piece__label">May 2024</span>
+            <span class="lux-piece__title">Nianbaoyuze Sunset</span>
+            <span class="lux-piece__meta">Tibetan ridgelines softened by the last rays before nightfall.</span>
+          </figcaption>
+        </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/OldForbiddenCity.jpeg" alt="Golden-hour corridor inside the Forbidden City." loading="lazy" data-caption="Old Forbidden City — a lacquering of reds and golds in the palace corridor." />
+          <figcaption>
+            <span class="lux-piece__label">November 2022</span>
+            <span class="lux-piece__title">Old Forbidden City</span>
+            <span class="lux-piece__meta">Lacquering of reds and golds in the palace corridor.</span>
+          </figcaption>
+        </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/SiguniangClouds.jpeg" alt="Cloud tendrils hugging the Siguniang peaks before dawn." loading="lazy" data-caption="Siguniang Clouds — tendrils clinging to the massif as first light warms the valley." />
+          <figcaption>
+            <span class="lux-piece__label">Aug 2021</span>
+            <span class="lux-piece__title">Siguniang Clouds</span>
+            <span class="lux-piece__meta">Tendrils clinging to the massif as first light warms the valley.</span>
+          </figcaption>
+        </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/SiguniangSunrise.jpeg" alt="Sunrise washing Siguniang peaks in rosy color." loading="lazy" data-caption="Siguniang Sunrise Glow — alpenglow revealing sharp ridges as the valley wakes." />
+          <figcaption>
+            <span class="lux-piece__label">Aug 2021</span>
+            <span class="lux-piece__title">Siguniang Sunrise Glow</span>
+            <span class="lux-piece__meta">Alpenglow revealing sharp ridges as the valley wakes.</span>
+          </figcaption>
+        </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/WumenStartrails.jpeg" alt="Star trails swirling over Wumen Gate at night." loading="lazy" data-caption="Wumen Star Trails — long exposure circling Beijing's gate as traffic diffuses." />
+          <figcaption>
+            <span class="lux-piece__label">Oct 2023</span>
+            <span class="lux-piece__title">Wumen Star Trails</span>
+            <span class="lux-piece__meta">Long exposure circling Beijing's gate as traffic diffuses.</span>
+          </figcaption>
+        </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/AuroraEagle.jpeg" alt="Aurora curtains flowing above Eagle Harbor shoreline." loading="lazy" data-caption="Eagle Harbor Aurora — violet pillars curling above Superior's edge while ice breaks at your feet." />
+          <figcaption>
+            <span class="lux-piece__label">May 2024</span>
+            <span class="lux-piece__title">Eagle Harbor Aurora</span>
+            <span class="lux-piece__meta">Violet curtains curling above Lake Superior's black waterline.</span>
+          </figcaption>
+        </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/GroupUnderAurora.jpeg" alt="Silhouettes gathered beneath an intense aurora ribbon." loading="lazy" data-caption="Field Crew under KP-9 — friends silhouetted beneath a crown of charged particles." />
+          <figcaption>
+            <span class="lux-piece__label">May 2024</span>
+            <span class="lux-piece__title">Field Crew under KP-9</span>
+            <span class="lux-piece__meta">Everyone went silent when the crown spilled over our heads.</span>
+          </figcaption>
+        </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/PurpleAurora.jpeg" alt="Purple aurora bands streaking above a dark horizon." loading="lazy" data-caption="Purple Aurora Band — proton arcs fanning out like theatre drapes at 2 a.m." />
+          <figcaption>
+            <span class="lux-piece__label">May 2024</span>
+            <span class="lux-piece__title">Purple Aurora Band</span>
+            <span class="lux-piece__meta">Proton arcs fanning out like drapes over Wisconsin farm fields.</span>
+          </figcaption>
+        </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/BermudaDJI.jpeg" alt="Aerial shot of Bermuda reef lines from a drone." loading="lazy" data-caption="Bermuda Reef Orbit — DJI pass tracing catamarans, reef lines, and impossible gradient blues." />
+          <figcaption>
+            <span class="lux-piece__label">Jun 2023</span>
+            <span class="lux-piece__title">Bermuda Reef Orbit</span>
+            <span class="lux-piece__meta">DJI pass tracing a catamaran and reef lines in impossible blues.</span>
+          </figcaption>
+        </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/BlueBlossom.jpeg" alt="Blue-lit blossoms cascading across a night garden." loading="lazy" data-caption="Blue Blossom Canopy — sodium lamps swapped for deep cyan to mimic moonlight on petals." />
+          <figcaption>
+            <span class="lux-piece__label">Spring 2023</span>
+            <span class="lux-piece__title">Blue Blossom Canopy</span>
+            <span class="lux-piece__meta">Moonlit palette swapped in post to turn the grove electric.</span>
+          </figcaption>
+        </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/CherryBlossom.jpeg" alt="Close-up of cherry blossoms in golden light." loading="lazy" data-caption="Cherry Blossom Study — low-angle sunrise giving each petal its own rim light." />
+          <figcaption>
+            <span class="lux-piece__label">Apr 2024</span>
+            <span class="lux-piece__title">Cherry Blossom Study</span>
+            <span class="lux-piece__meta">Low-angle sunrise carving rim light through the petals.</span>
+          </figcaption>
+        </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/ChicagoSkyline.jpeg" alt="Downtown Chicago skyline framed through a high-rise window." loading="lazy" data-caption="Skylines & Puddles — Lake Michigan moisture turning a condo window into diffusion glass." />
+          <figcaption>
+            <span class="lux-piece__label">Jan 2024</span>
+            <span class="lux-piece__title">Skylines & Puddles</span>
+            <span class="lux-piece__meta">Lake moisture fogged the glass into a built-in diffusion filter.</span>
+          </figcaption>
+        </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/ShanghaiSkyline.jpeg" alt="Shanghai skyline at dusk with layered fog." loading="lazy" data-caption="Shanghai Skyline Fade — Pudong towers dissolving into peach haze after a typhoon." />
+          <figcaption>
+            <span class="lux-piece__label">Oct 2023</span>
+            <span class="lux-piece__title">Shanghai Skyline Fade</span>
+            <span class="lux-piece__meta">Typhoon haze turned Lujiazui into a pastel model set.</span>
+          </figcaption>
+        </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/UVStyleSunset.jpeg" alt="Hyper-saturated sunset with ultraviolet hues." loading="lazy" data-caption="UV-Style Sunset — false-color treatment pushing magentas into ultraviolet territory." />
+          <figcaption>
+            <span class="lux-piece__label">Aug 2024</span>
+            <span class="lux-piece__title">UV-Style Sunset</span>
+            <span class="lux-piece__meta">False-color grading chases what the sensor almost saw.</span>
+          </figcaption>
+        </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/VancouverBike.jpeg" alt="Cyclist riding along Vancouver seawall at dusk." loading="lazy" data-caption="Seawall Cyclist — rain-slick bricks, a rental bike, and the last glow off Burrard Inlet." />
+          <figcaption>
+            <span class="lux-piece__label">Oct 2024</span>
+            <span class="lux-piece__title">Seawall Cyclist</span>
+            <span class="lux-piece__meta">Rain-slick bricks and a rental frame tracing Burrard Inlet.</span>
+          </figcaption>
+        </figure>
+        <figure class="lux-piece">
+          <img class="lux-piece__img" src="images/VancouverDT.jpeg" alt="Vancouver downtown skyline at blue hour." loading="lazy" data-caption="Vancouver Blue Hour — glass towers reflecting the harbor like a circuit board." />
+          <figcaption>
+            <span class="lux-piece__label">Oct 2024</span>
+            <span class="lux-piece__title">Vancouver Blue Hour</span>
+            <span class="lux-piece__meta">Harbor reflections stacking like a circuit board grid.</span>
+          </figcaption>
+        </figure>
       </div>
-    </div>
-  </section>
-</main>
-<footer class="foot"><small>© <span id="year"></span> Richard Zhu</small></footer>
-<script src="../shared/scripts/site.js"></script>
-</body></html>
+    </section>
+  </main>
+
+  <div class="lux-lightbox" aria-hidden="true">
+    <figure class="lux-lightbox__content">
+      <button class="lux-lightbox__close" type="button" aria-label="Close">×</button>
+      <img class="lux-lightbox__img" src="" alt="" />
+      <figcaption class="lux-lightbox__caption"></figcaption>
+    </figure>
+  </div>
+
+  <footer class="foot"><small>© <span id="year"></span> Richard Zhu</small></footer>
+  <script src="../shared/scripts/site.js"></script>
+  <script>
+    (function(){
+      const images = document.querySelectorAll('.lux-piece__img');
+      const lightbox = document.querySelector('.lux-lightbox');
+      if(!lightbox || !images.length){return;}
+      const lightboxImg = lightbox.querySelector('.lux-lightbox__img');
+      const lightboxCaption = lightbox.querySelector('.lux-lightbox__caption');
+      const closeBtn = lightbox.querySelector('.lux-lightbox__close');
+      const close = () => {
+        lightbox.classList.remove('is-visible');
+        lightbox.setAttribute('aria-hidden','true');
+        document.body.style.overflow='';
+      };
+      const open = (img) => {
+        if(!img){return;}
+        lightboxImg.src = img.dataset.large || img.src;
+        lightboxImg.alt = img.alt || '';
+        lightboxCaption.textContent = img.dataset.caption || img.alt || '';
+        lightbox.classList.add('is-visible');
+        lightbox.setAttribute('aria-hidden','false');
+        document.body.style.overflow='hidden';
+      };
+      images.forEach((img) => {
+        img.setAttribute('tabindex','0');
+        img.setAttribute('role','button');
+        img.addEventListener('click', () => open(img));
+        img.addEventListener('keydown', (event) => {
+          if(event.key === 'Enter' || event.key === ' '){
+            event.preventDefault();
+            open(img);
+          }
+        });
+      });
+      closeBtn && closeBtn.addEventListener('click', close);
+      lightbox.addEventListener('click', (event) => {
+        if(event.target === lightbox){
+          close();
+        }
+      });
+      document.addEventListener('keydown', (event) => {
+        if(event.key === 'Escape' && lightbox.classList.contains('is-visible')){
+          close();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

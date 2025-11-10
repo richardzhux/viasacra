@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en"><head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4CVV2Q9HQQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4CVV2Q9HQQ');
+  </script>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Constitutional Law — Note | Viasacra</title>
+<link rel="stylesheet" href="../../shared/styles/site.css" />
+</head><body>
+<header class="nav"><div class="wrap">
+<a class="brand" href="../../home/index.html"><span class="brand-letter brand-letter--v">V</span><span class="brand-rest">ia</span><span class="brand-letter brand-letter--s">S</span><span class="brand-rest">acra</span></a>
+<nav>
+  <a href="../../about/index.html">About</a>
+  <a href="../../projects/index.html">Projects</a>
+  <a href="../../meditations/index.html">Meditations</a>
+  <a href="../index.html">Random</a>
+  <a href="../../lux/index.html">Lux</a>
+  <a href="../../travel/index.html">Travel</a>
+</nav></div></header>
+<main class="wrap essay-page">
+  <article class="essay">
+    <header class="essay-header">
+      <p class="essay-label">Notebook</p>
+      <h1 id="noteTitle">Constitutional Law — Weekly Outline</h1>
+      <p class="essay-subhead" id="noteSubhead">Loading week details…</p>
+      <a class="essay-back" href="./index.html">← Back to weekly list</a>
+    </header>
+    <div class="essay-body" id="essayBody">
+      <p class="essay-loading">Loading notes…</p>
+    </div>
+  </article>
+</main>
+<footer class="foot"><small>© <span id="year"></span> Richard Zhu</small></footer>
+<script src="../../shared/scripts/site.js"></script>
+<script>
+(async function loadSection(){
+  const body = document.getElementById("essayBody");
+  const titleEl = document.getElementById("noteTitle");
+  const subheadEl = document.getElementById("noteSubhead");
+  const hash = decodeURIComponent(window.location.hash.replace("#",""));
+  try{
+    const res = await fetch("./article.html");
+    if(!res.ok){throw new Error("load failed");}
+    const html = await res.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html,"text/html");
+    const headings = Array.from(doc.querySelectorAll("h2"));
+    if(!headings.length){
+      body.innerHTML = "<p class=\"essay-error\">Notes are on the way.</p>";
+      subheadEl.textContent = "No sections found.";
+      return;
+    }
+    let targetHeading = hash ? headings.find((h) => h.id === hash) : headings[0];
+    if(!targetHeading){
+      targetHeading = headings[0];
+    }
+    const index = headings.indexOf(targetHeading);
+    const nextHeading = headings[index + 1] || null;
+    const fragment = document.createDocumentFragment();
+    const headingClone = targetHeading.cloneNode(true);
+    fragment.appendChild(headingClone);
+    let node = targetHeading.nextSibling;
+    while(node){
+      if(nextHeading && node === nextHeading){break;}
+      if(node.nodeType === Node.ELEMENT_NODE && nextHeading && node.contains(nextHeading)){break;}
+      fragment.appendChild(node.cloneNode(true));
+      node = node.nextSibling;
+    }
+    body.innerHTML = "";
+    body.appendChild(fragment);
+    titleEl.textContent = targetHeading.textContent.trim();
+    subheadEl.textContent = "Live outline from Constitutional Law seminar.";
+  }catch(err){
+    console.error(err);
+    body.innerHTML = "<p class=\"essay-error\">Unable to load the outline. Please try again later.</p>";
+    subheadEl.textContent = "Something went wrong.";
+  }
+})();
+</script>
+</body></html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en"><head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4CVV2Q9HQQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4CVV2Q9HQQ');
+  </script>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Constitutional Law — Notes | Viasacra</title>
+<link rel="stylesheet" href="../../shared/styles/site.css" />
+<style>
+  .notes-page{
+    padding-bottom:120px;
+  }
+  .notes-feed{
+    padding-bottom:100px;
+  }
+  .notes-feed__status{
+    margin:0;
+    color:var(--muted);
+  }
+  .notes-feed__status--error{
+    color:#b12020;
+  }
+</style>
+</head><body>
+<header class="nav"><div class="wrap">
+<a class="brand" href="../../home/index.html"><span class="brand-letter brand-letter--v">V</span><span class="brand-rest">ia</span><span class="brand-letter brand-letter--s">S</span><span class="brand-rest">acra</span></a>
+<nav>
+  <a href="../../about/index.html">About</a>
+  <a href="../../projects/index.html">Projects</a>
+  <a href="../../meditations/index.html">Meditations</a>
+  <a href="../index.html">Random</a>
+  <a href="../../lux/index.html">Lux</a>
+  <a href="../../travel/index.html">Travel</a>
+</nav></div></header>
+<main class="wrap random-page notes-page">
+  <h1>Constitutional Law — Weekly Outline</h1>
+  <p class="lead">Live lecture notes on vagueness, state action, and the procedural chess of getting a statute before the Court.</p>
+
+  <section class="random-feed notes-feed" id="notesFeed" aria-live="polite">
+    <p class="notes-feed__status">Loading weekly packets…</p>
+  </section>
+</main>
+<footer class="foot"><small>© <span id="year"></span> Richard Zhu</small></footer>
+<script src="../../shared/scripts/site.js"></script>
+<script>
+(async function loadNotes(){
+  const feed = document.getElementById("notesFeed");
+  if(!feed){return;}
+  const setStatus = (message, cls = "notes-feed__status") => {
+    feed.innerHTML = `<p class="${cls}">${message}</p>`;
+  };
+  try{
+    const res = await fetch("./article.html");
+    if(!res.ok){throw new Error("load failed");}
+    const html = await res.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html,"text/html");
+    const headings = Array.from(doc.querySelectorAll("h2"));
+    if(!headings.length){
+      setStatus("Notes are on the way.");
+      return;
+    }
+    feed.innerHTML = "";
+    headings.forEach((heading, index) => {
+      const nextHeading = headings[index + 1] || null;
+      const sectionNodes = [];
+      let node = heading.nextSibling;
+      while(node){
+        if(nextHeading && node === nextHeading){break;}
+        if(node.nodeType === Node.ELEMENT_NODE && nextHeading && node.contains(nextHeading)){break;}
+        sectionNodes.push(node.cloneNode(true));
+        node = node.nextSibling;
+      }
+
+      const article = document.createElement("article");
+      article.className = "nyt-card notes-entry";
+
+      const link = document.createElement("a");
+      link.className = "nyt-card__link";
+      const targetId = heading.id || heading.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g,"-");
+      link.href = `./note.html#${targetId}`;
+
+      const title = document.createElement("h2");
+      title.className = "nyt-card__title";
+      title.textContent = heading.textContent.trim();
+      link.appendChild(title);
+
+      const snippetSource = sectionNodes.find((node) => node.nodeType === Node.ELEMENT_NODE && node.tagName === "P" && node.textContent.trim());
+      const snippet = document.createElement("p");
+      snippet.className = "nyt-card__dek";
+      if(snippetSource){
+        const txt = snippetSource.textContent.trim().replace(/\s+/g," ");
+        snippet.textContent = txt.length > 160 ? `${txt.slice(0,157)}…` : txt;
+      }else{
+        snippet.textContent = "Tap to read the outline.";
+      }
+      link.appendChild(snippet);
+
+      const cta = document.createElement("span");
+      cta.className = "nyt-card__cta";
+      cta.textContent = "Read the notes →";
+      link.appendChild(cta);
+
+      article.appendChild(link);
+      feed.appendChild(article);
+    });
+  }catch(err){
+    console.error(err);
+    setStatus("Unable to load the outline. Please try again later.","notes-feed__status notes-feed__status--error");
+  }
+})();
+</script>
+</body></html>
