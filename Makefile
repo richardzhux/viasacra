@@ -3,7 +3,7 @@ commit:
 	@current_time=$$(date "+%Y-%m-%d %H:%M:%S") && \
 	git add . && \
 	git commit -m "Numerous UI upgrades @ $$current_time" && \
-	$(MAKE) push
+	git push -u origin main
 
 push:
 	@echo "Syncing and pushing main..."
