@@ -9,7 +9,7 @@ body {
   --liquid-color-a: #9955bb;
   --liquid-color-b: #52b2bf;
   --liquid-color-c: #fc94af;
-  background-color: #0d0b1491; /* change this for overall vibrance/brightness */
+  background-color: #0d0b144f; /* change this for overall vibrance/brightness */
   min-height:100%;
   color: var(--ink);
   margin: 0;
@@ -29,7 +29,7 @@ body::before {
     linear-gradient(145deg, var(--liquid-color-a) 0%, var(--liquid-color-b) 40%, var(--liquid-color-c) 100%),
     radial-gradient(circle at var(--liquid-glow-1), rgba(252,148,175,.7), rgba(252, 148, 176,.2) 60%),
     radial-gradient(circle at var(--liquid-glow-2), rgba(82,178,191,.7), rgba(82,178,191,.2) 55%);
-  background-color: #0d0b1491;
+  background-color: #0d0b14ea;
   background-blend-mode: soft-light;
   background-size: 200% 200%, 200% 200%, 200% 200%;
   background-position: 0% 0%, 80% 0%, 20% 80%;
@@ -429,6 +429,40 @@ button#cta{
   display:flex;
   flex-direction:column;
   gap:28px;
+}
+.project-detail__notes-layout{
+  display:flex;
+  flex-wrap:wrap;
+  gap:24px;
+  align-items:flex-start;
+}
+.project-detail__widgets{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+  flex:0 1 960px;
+}
+.project-detail__notes-list{
+  flex:1 1 360px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.project-detail__metar{
+  flex:0 0 320px;
+  max-width:360px;
+  width:100%;
+  min-height:435px;
+  border-radius:22px;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  background:#fff;
+  overflow:hidden;
+}
+.project-detail__lightmap{
+  flex:1 1 800px;
+  max-width:100%;
+  overflow:auto;
 }
 .project-detail__embed{
   border-radius:28px;
