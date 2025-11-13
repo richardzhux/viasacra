@@ -1,0 +1,45 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+---
+
+<SiteLayout title="Weather Dashboards — Projects — Viasacra" description="Synoptic handoffs for pilots: a Windy layer overview paired with HRRR surface fields." active="projects" mainClass="wrap project-detail">
+  <header class="project-detail__header">
+    <a class="project-detail__back" href="/projects/">← Back to projects</a>
+    <h1>Weather Dashboards</h1>
+    <p class="project-detail__lead">Synoptic handoffs for pilots: a Windy layer overview paired with HRRR surface fields.</p>
+  </header>
+
+  <section class="project-detail__body">
+    <div class="project-detail__stack">
+      <article class="project-detail__panel project-detail__panel--night project-detail__panel--square">
+        <h2>Windy Wind Map</h2>
+        <iframe
+          title="Windy Wind Map"
+          src="https://embed.windy.com/embed.html?type=map&amp;location=coordinates&amp;metricRain=mm&amp;metricTemp=%C2%B0C&amp;metricWind=kt&amp;zoom=6&amp;overlay=wind&amp;product=ecmwf&amp;level=surface&amp;lat=41.515&amp;lon=-87.69&amp;detailLat=42.045&amp;detailLon=-87.693&amp;detail=true&amp;pressure=true"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </article>
+      <article class="project-detail__panel project-detail__panel--night project-detail__panel--square">
+        <h2>HRRR Surface Fields</h2>
+        <iframe
+          title="Pivotal Weather HRRR"
+          src="https://beta.pivotalweather.com/models/hrrr/sfct-imp/us_mw?run=2025110406&amp;forecastHour=3&amp;lat=42.03&amp;lon=-87.67"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </article>
+    </div>
+    <div class="project-detail__notes-layout">
+      <div class="project-detail__notes-list">
+        <p class="project-detail__note project-detail__note--loud">For light pollution overlays, visit <a href="https://lightpollutionmap.app/" target="_blank" rel="noopener">lightpollutionmap.app</a>.</p>
+        <p class="project-detail__note project-detail__note--loud">For aurora and solar wind conditions, visit <a href="https://www.spaceweatherlive.com/en.html" target="_blank" rel="noopener">SpaceWeatherLive</a>.</p>
+        <p class="project-detail__note project-detail__note--loud">For graphical METAR/obs overlays, visit <a href="https://aviationweather.gov/gfa/#obs" target="_blank" rel="noopener">aviationweather.gov GFA Observations</a>.</p>
+        <p class="project-detail__note project-detail__note--loud">For METAR/TAF text feeds, visit <a href="https://aviationweather.gov/data/metar/?decoded=1&amp;ids=KORD&amp;taf=1" target="_blank" rel="noopener">aviationweather.gov</a>.</p>
+        <p class="project-detail__note project-detail__note--loud">For HRRR reflectivity snapshots, visit <a href="https://www.tropicaltidbits.com/analysis/models/?model=hrrr&amp;region=ncus&amp;pkg=ref_frzn" target="_blank" rel="noopener">Tropical Tidbits</a>.</p>
+      </div>
+      <aside class="project-detail__metar" aria-label="METAR details for Chicago O'Hare International Airport">
+        <a href="https://metar-taf.com/metar/KORD" id="metartaf-7mopYbAO" style="font-size:18px; font-weight:500; color:#000; width:300px; height:435px; display:block">METAR Chicago O&#039;hare International Airport</a>
+        <script async defer crossorigin="anonymous" src="https://metar-taf.com/embed-js/KORD?bg_color=000000&amp;speed=kph&amp;qnh=hPa&amp;rh=rh&amp;target=7mopYbAO"></script>
+      </aside>
+    </div>
+  </section>
+</SiteLayout>

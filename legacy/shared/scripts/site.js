@@ -1,0 +1,304 @@
+// ---- Footer year ------------------------------------------------------------
+const y = document.getElementById("year");
+if (y) y.textContent = new Date().getFullYear();
+
+// ---- CTA mailto (optional button with id="cta") -----------------------------
+document.getElementById("cta")?.addEventListener("click", () => {
+  location.href = "mailto:you@example.com";
+});
+
+// ---- Theme toggle ----------------------------------------------------------
+(function () {
+  const toggle = document.querySelector('.theme-toggle');
+  if (!toggle) return;
+
+  const icon = toggle.querySelector('.theme-toggle__icon');
+  const label = toggle.querySelector('.theme-toggle__label');
+  const prefersLightMedia = window.matchMedia?.('(prefers-color-scheme: light)');
+  let stored = null;
+  try {
+    stored = window.localStorage.getItem('vs-theme');
+  } catch (_) {
+    stored = null;
+  }
+
+  const apply = (mode) => {
+    const isLight = mode === 'light';
+    document.body.classList.toggle('is-light', isLight);
+    document.body.classList.toggle('is-dark', !isLight);
+    toggle.setAttribute('data-theme', mode);
+    toggle.setAttribute('aria-pressed', String(isLight));
+    if (icon) icon.textContent = isLight ? '☀️' : '🌙';
+    if (label) label.textContent = isLight ? 'Light' : 'Night';
+  };
+
+  const initial = stored || (prefersLightMedia?.matches ? 'light' : 'dark');
+  apply(initial);
+
+  toggle.addEventListener('click', () => {
+    const next = document.body.classList.contains('is-light') ? 'dark' : 'light';
+    apply(next);
+    try {
+      window.localStorage.setItem('vs-theme', next);
+    } catch (_) {}
+  });
+
+  const handleSchemeChange = (event) => {
+    let saved = null;
+    try {
+      saved = window.localStorage.getItem('vs-theme');
+    } catch (_) {
+      saved = null;
+    }
+    if (saved) return; // honor explicit choice
+    apply(event.matches ? 'light' : 'dark');
+  };
+
+  if (prefersLightMedia?.addEventListener) {
+    prefersLightMedia.addEventListener('change', handleSchemeChange);
+  } else if (prefersLightMedia?.addListener) {
+    prefersLightMedia.addListener(handleSchemeChange);
+  }
+})();
+
+// ---- Smooth anchor scroll ---------------------------------------------------
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener("click", e => {
+    const id = a.getAttribute("href").slice(1);
+    const el = document.getElementById(id);
+    if (el) { e.preventDefault(); el.scrollIntoView({ behavior: "smooth" }); }
+  });
+});
+
+// ---- Rotating multilingual greeting ----------------------------------------
+(function () {
+  const el = document.getElementById("greeting");
+  if (!el) return;
+
+  const greetings = [
+    { text: "Hi — how are you today?",            lang: "en",      dir: "ltr" },
+    { text: "你好，今天好吗？",                          lang: "zh-Hans", dir: "ltr" },
+    { text: "你好，今天好嗎？",                          lang: "zh-Hant", dir: "ltr" },
+    { text: "안녕하세요, 오늘 기분 어때요?",               lang: "ko",      dir: "ltr" },
+    { text: "こんにちは、ご機嫌いかがですか？",              lang: "ja",      dir: "ltr" },
+    { text: "Merhaba, bugün nasılsın?",            lang: "tr",      dir: "ltr" },
+    { text: "مرحبًا، كيف حالك اليوم؟",                lang: "ar",      dir: "rtl" },
+    { text: "Salve, quid agis hodie?",            lang: "la",      dir: "ltr" },
+    { text: "Γεια, τι κάνεις σήμερα;",             lang: "el",      dir: "ltr" },
+    { text: "Bonjour, comment ça va aujourd’hui ?", lang: "fr",    dir: "ltr" },
+    { text: "Ciao, come stai oggi?",              lang: "it",      dir: "ltr" },
+    { text: "Hallo, wie geht es dir heute?",      lang: "de",      dir: "ltr" },
+    { text: "Hoi, hoe gaat het vandaag?",         lang: "nl",      dir: "ltr" },
+    { text: "नमस्ते, आज आप कैसे हैं?",                 lang: "hi",      dir: "ltr" },
+    { text: "नमस्ते, कथं भवति अद्य?",                   lang: "sa",      dir: "ltr" },
+    { text: "Hej, hvordan har du det i dag?",     lang: "da",      dir: "ltr" },
+    { text: "Hei, hvordan har du det i dag?",     lang: "no",      dir: "ltr" },
+    { text: "Hej, hur mår du idag?",              lang: "sv",      dir: "ltr" },
+    { text: "Hei, mitä kuuluu tänään?",           lang: "fi",      dir: "ltr" },
+    { text: "היי, מה שלומך היום?",                 lang: "he",      dir: "rtl" }
+  ];
+
+  let i = 0;
+
+  function swap(toIndex) {
+    const g = greetings[toIndex];
+    el.classList.add("is-fading");
+    setTimeout(() => {
+      el.textContent = g.text;
+      el.setAttribute("lang", g.lang);
+      el.setAttribute("dir", g.dir);
+      requestAnimationFrame(() => el.classList.remove("is-fading"));
+    }, 200);
+  }
+
+  i = 1+ Math.floor(Math.random() * (greetings.length - 1));
+  swap(i);
+    setInterval(() => {
+    i = (i + 1) % greetings.length;
+  swap(i);
+  }, 5000);
+})();
+
+// ---- Maps (Leaflet) ---------------------------------------------------------
+
+// Bigger, cleaner emoji pins
+const icon = (emoji) => L.divIcon({
+  className: "emoji-pin",
+  html: `<div style="
+    font-size:24px; line-height:24px; text-align:center;
+    width:36px; height:36px; border-radius:50%;
+    background:#fff; border:1px solid #e0d9cd; box-shadow:0 4px 12px rgba(0,0,0,.10);
+    display:flex; align-items:center; justify-content:center;
+  ">${emoji}</div>`,
+  iconSize: [36, 36],
+  iconAnchor: [18, 18]
+});
+
+// Add a nice light basemap (Carto Positron) with OSM fallback
+function addTiles(map) {
+  // Primary: OpenStreetMap standard
+  const primary = L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    { attribution: "© OpenStreetMap contributors", maxZoom: 19 }
+  );
+
+  // Fallback: Carto Positron (light)
+  const fallback = L.tileLayer(
+    "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+    { attribution: "© OpenStreetMap contributors © CARTO", subdomains: "abcd", maxZoom: 19 }
+  );
+
+  primary.on("tileerror", () => {
+    if (!map.__usedFallback) {
+      map.__usedFallback = true;
+      map.removeLayer(primary);
+      fallback.addTo(map);
+    }
+  });
+
+  primary.addTo(map);
+}
+
+
+function initMapsIfPresent() {
+  // Wait for Leaflet to be available
+  if (typeof window !== "undefined" && typeof window.L === "undefined") {
+    setTimeout(initMapsIfPresent, 120);
+    return;
+  }
+  if (typeof L === "undefined") return;
+
+  const mapChicagoEl  = document.getElementById("map-chicago");
+  const mapLAEl       = document.getElementById("map-la");
+  const mapBeijingEl  = document.getElementById("map-beijing");
+  if (!mapChicagoEl || !mapLAEl || !mapBeijingEl) return;
+
+  if (window._mapsBootstrapDone) return;
+  window._mapsBootstrapDone = true;
+
+  // --- Slide 1: Chicago (closer default zoom)
+  const mapChi = L.map("map-chicago", { scrollWheelZoom: false, zoomControl: true })
+    .setView([41.953752, -87.646160], 10); // was 11 → tighter view
+  addTiles(mapChi);
+
+  L.marker([42.0560, -87.6752], { icon: icon("❤️") })
+    .addTo(mapChi)
+    .bindPopup("<b>Northwestern — Evanston</b><br>2023–2026 • Physics & Legal Studies (Classics minor)")
+    .bindTooltip("Northwestern — Evanston", {
+      permanent: true, direction: "top", offset: [0, -20], className: "map-label"
+    });
+
+  L.marker([41.8807, -87.6256], { icon: icon("💼") })
+    .addTo(mapChi)
+    .bindPopup("<b>Federal Defender Program</b><br>55 E Monroe, Chicago")
+    .bindTooltip("Federal Defender Program", {
+      permanent: true, direction: "top", offset: [0, -20], className: "map-label"
+    });
+
+  // --- Slide 2: Los Angeles (UCLA)
+  const mapLA = L.map("map-la", { scrollWheelZoom: false })
+    .setView([34.070, -118.445], 14);
+  addTiles(mapLA);
+
+  L.marker([34.070199, -118.45105764], { icon: icon("❤️") })
+    .addTo(mapLA)
+    .bindPopup("<b>UCLA — De Neve Birch</b><br>memories / love")
+    .bindTooltip("UCLA — De Neve Birch", {
+      permanent: true, direction: "top", offset: [0, -20], className: "map-label"
+    });
+
+  L.marker([34.0689, -118.4437], { icon: icon("💼") })
+    .addTo(mapLA)
+    .bindPopup("<b>UCLA — Engineering V</b><br>PSPL • Engineering V")
+    .bindTooltip("UCLA — Engineering V", {
+      permanent: true, direction: "top", offset: [0, -20], className: "map-label"
+    });
+
+  // --- Slide 3: Beijing
+  const mapBJ = L.map("map-beijing", { scrollWheelZoom: false })
+    .setView([39.909854, 116.362622], 13);
+  addTiles(mapBJ);
+
+  L.marker([39.909854, 116.362622], { icon: icon("🏛️") })
+    .addTo(mapBJ)
+    .bindPopup("<b>Experimental High School Affiliated to BNU</b>")
+    .bindTooltip("BNU Experimental High School", {
+      permanent: true, direction: "top", offset: [0, -20], className: "map-label"
+    });
+
+  // ---- Simple slider (prev/next) ------------------------------------------
+  const slides = Array.from(document.querySelectorAll(".slide"));
+  let idx = 0;
+  const label = document.getElementById("slideLabel");
+  const names = ["Chicago", "Los Angeles (UCLA)", "Beijing"];
+
+  function show(i) {
+    slides.forEach((s, n) => s.classList.toggle("active", n === i));
+    if (label) label.textContent = `${names[i]} • ${i + 1}/${slides.length}`;
+    setTimeout(() => {
+      try { mapChi.invalidateSize(); } catch {}
+      try { mapLA.invalidateSize(); } catch {}
+      try { mapBJ.invalidateSize(); } catch {}
+    }, 150);
+  }
+
+  document.getElementById("prevSlide")?.addEventListener("click", () => {
+    idx = (idx - 1 + slides.length) % slides.length; show(idx);
+  });
+  document.getElementById("nextSlide")?.addEventListener("click", () => {
+    idx = (idx + 1) % slides.length; show(idx);
+  });
+
+  show(0);
+}
+
+function initLuxMasonry() {
+  const grid = document.querySelector(".lux-grid");
+  if (!grid) return;
+
+  const items = Array.from(grid.querySelectorAll(".lux-piece"));
+
+  function computeSpan(item) {
+    const img = item.querySelector("img");
+    if (!img) return;
+
+    const rowHeight = parseFloat(getComputedStyle(grid).getPropertyValue("grid-auto-rows")) || 8;
+    const rowGap = parseFloat(getComputedStyle(grid).getPropertyValue("row-gap")) || 0;
+    const naturalWidth = img.naturalWidth;
+    const naturalHeight = img.naturalHeight;
+    const width = item.getBoundingClientRect().width;
+    if (!naturalWidth || !naturalHeight || !width) return;
+
+    const height = width * (naturalHeight / naturalWidth);
+    const span = Math.max(1, Math.ceil((height + rowGap) / (rowHeight + rowGap)));
+
+    item.style.gridRowEnd = `span ${span}`;
+    item.style.height = `${span * rowHeight + Math.max(0, span - 1) * rowGap}px`;
+  }
+
+  items.forEach(item => {
+    const img = item.querySelector("img");
+    if (!img) return;
+    if (img.complete && img.naturalHeight) {
+      computeSpan(item);
+    } else {
+      const adjust = () => computeSpan(item);
+      img.addEventListener("load", adjust, { once: true });
+      img.addEventListener("error", adjust, { once: true });
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    items.forEach(computeSpan);
+  });
+
+  // in case fonts or layout shift after load
+  window.addEventListener("load", () => {
+    items.forEach(computeSpan);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initMapsIfPresent();
+  initLuxMasonry();
+});

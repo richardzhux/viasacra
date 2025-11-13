@@ -1,0 +1,42 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+---
+
+<SiteLayout title="Projects — Viasacra" description="Interactive tools and fieldwork, distilled into self-contained studies." active="projects" mainClass="wrap projects-page">
+  <header class="projects-header">
+    <h1>Projects</h1>
+    <p class="projects-lead">Interactive tools and fieldwork, distilled into self-contained studies.</p>
+  </header>
+
+  <section class="projects-grid projects-grid--two-up">
+    <a class="project-card" href="/projects/iching/">
+      <img src="/projects/iching/assets/bagua.png" alt="Abstract Bagua diagram in soft gold and black" loading="lazy" />
+      <div class="project-card__overlay">
+        <span class="project-card__tag">Divination</span>
+        <h2 class="project-card__title">I Ching</h2>
+        <p class="project-card__desc">Throw coins, read changing lines, and sit inside the ritual counsel of the Book of Changes.</p>
+        <span class="project-card__cta">View project →</span>
+      </div>
+    </a>
+
+    <a class="project-card project-card--light" href="/projects/weather/">
+      <img src="/projects/weather/assets/weatherUS.png" alt="Weather maps collage for the United States" loading="lazy" />
+      <div class="project-card__overlay">
+        <span class="project-card__tag">Aviation Weather</span>
+        <h2 class="project-card__title">Weather Dashboards</h2>
+        <p class="project-card__desc">Windy synoptics alongside high-resolution model output tuned for Chicago departures.</p>
+        <span class="project-card__cta">View project →</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="/projects/reizentraj/">
+      <img src="/projects/reizentraj/assets/rainbow-worldview.png" alt="Global rainbow-tinted world map" loading="lazy" />
+      <div class="project-card__overlay">
+        <span class="project-card__tag">Interactive Travelogue</span>
+        <h2 class="project-card__title">Reizentraj</h2>
+        <p class="project-card__desc">A deck.gl + MapLibre cockpit that turns Google Takeout location history into investor-grade travel telemetry.</p>
+        <span class="project-card__cta">View project →</span>
+      </div>
+    </a>
+  </section>
+</SiteLayout>

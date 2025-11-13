@@ -1,0 +1,84 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  active?: 'home' | 'about' | 'projects' | 'meditations' | 'random' | 'lux' | 'travel';
+  mainClass?: string;
+}
+
+const {
+  title = 'Viasacra — Richard Zhu',
+  description = 'Law × Astrophysics × Design. Field notes and light photographs from Via Sacra.',
+  active = 'home',
+  mainClass = '',
+} = Astro.props;
+
+const navLinks = [
+  { href: '/about/', label: 'About', id: 'about' },
+  { href: '/projects/', label: 'Projects', id: 'projects' },
+  { href: '/meditations/', label: 'Meditations', id: 'meditations' },
+  { href: '/random/', label: 'Random', id: 'random' },
+  { href: '/lux/', label: 'Lux', id: 'lux' },
+  { href: '/travel/', label: 'Travel', id: 'travel' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4CVV2Q9HQQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4CVV2Q9HQQ');
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://res.cloudinary.com" />
+    <link rel="stylesheet" href="/shared/styles/site.css" />
+    <link rel="stylesheet" href="/shared/styles/lux.css" />
+    <link rel="icon" href="/favicon.ico" />
+    <slot name="head" />
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="brand" href="/home/"><strong>Forum of Richard</strong></a>
+      <nav>
+        {navLinks.map((link) => (
+          <a href={link.href} class={link.id === active ? 'active' : undefined}>{link.label}</a>
+        ))}
+        <button class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false" id="themeToggle">☀︎</button>
+      </nav>
+    </header>
+    <main class={`shell-main ${mainClass}`}>
+      <slot />
+    </main>
+    <footer class="foot"><small>© <span id="year"></span> Richard Zhu</small></footer>
+    <script src="/shared/scripts/site.js" is:inline></script>
+    <script is:inline>
+      (() => {
+        const body = document.body;
+        const toggle = document.getElementById('themeToggle');
+        if (!toggle) return;
+        const applyTheme = (isLight) => {
+          body.classList.toggle('is-light', isLight);
+          window.localStorage.setItem('vs-theme', isLight ? 'light' : 'dark');
+          toggle.textContent = isLight ? '☾' : '☀︎';
+          toggle.setAttribute('aria-pressed', String(isLight));
+          toggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+        };
+        const stored = window.localStorage.getItem('vs-theme');
+        const systemLight = window.matchMedia ? window.matchMedia('(prefers-color-scheme: light)').matches : false;
+        applyTheme(stored === 'light' || (!stored && systemLight));
+        toggle.addEventListener('click', () => {
+          applyTheme(!body.classList.contains('is-light'));
+        });
+      })();
+    </script>
+    <slot name="afterScripts" />
+  </body>
+</html>

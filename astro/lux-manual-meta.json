@@ -1,0 +1,948 @@
+[
+  {
+    "src": "images/amsterdam-window-cat.jpg",
+    "title": "Canal-Side Nap",
+    "displayDate": "2024-06-10",
+    "date": "2024-06-10",
+    "location": "Back to Black, Amsterdam, Netherlands",
+    "categories": [
+      "urban",
+      "people"
+    ],
+    "tags": [
+      "Amsterdam",
+      "cat",
+      "window",
+      "cafe"
+    ],
+    "alt": "Ginger-and-white cat napping on a Jordaan café windowsill.",
+    "caption": "Lazy afternoon guardian of a Jordaan café window.",
+    "localImage": "/images/lux/urban/amsterdam-window-cat.jpg",
+    "essay": "The café had not yet opened, but its resident ginger stretched across the sill like royalty. Tourists tapped the glass; he refused to move, soaking in the damp August light that makes the Jordaan feel like a film set."
+  },
+  {
+    "src": "images/amsterdam-dock-sunset.jpg",
+    "title": "Oosterdok Dusk",
+    "displayDate": "2023-06-10",
+    "date": "2023-06-10",
+    "location": "Oosterdok, Amsterdam, Netherlands",
+    "categories": [
+      "urban",
+      "water"
+    ],
+    "tags": [
+      "Amsterdam",
+      "canal",
+      "sunset",
+      "solitude"
+    ],
+    "alt": "Silhouette seated on a pier in Amsterdam at sunset with boats passing.",
+    "caption": "Solitary commuter absorbing the last peach light above Centraal.",
+    "localImage": "/images/lux/urban/amsterdam-dock-sunset.jpg",
+    "essay": "A single commuter lingered on the dock as ferries traced the Amstel, letting the last burn of peach light fall over Centraal Station. The whole city exhaled and the water kept the secret."
+  },
+  {
+    "src": "images/van-gogh-almond-blossom-gallery.jpg",
+    "title": "Almond Blossom Pilgrims",
+    "displayDate": "2024-06-09",
+    "date": "2024-06-09",
+    "location": "Van Gogh Museum, Amsterdam, Netherlands",
+    "categories": [
+      "urban",
+      "interior"
+    ],
+    "tags": [
+      "museum",
+      "Van Gogh",
+      "crowd",
+      "Amsterdam"
+    ],
+    "alt": "Visitors silhouetted before Van Gogh's Almond Blossoms painting.",
+    "caption": "Crowd hushes before Van Gogh’s sky-blue branches in Amsterdam.",
+    "localImage": "/images/lux/urban/van-gogh-almond-blossom-gallery.jpg",
+    "essay": "An entire room went silent for a branch painted 135 years ago. Every visitor inhaled the same turquoise air while Almond Blossoms drifted beyond the gilt frame."
+  },
+  {
+    "src": "images/amsterdam-street-hearts.jpg",
+    "title": "Warm Hearts on Berenstraat",
+    "displayDate": "2024-06-09",
+    "date": "2024-06-09",
+    "location": "Berenstraat, Amsterdam, Netherlands",
+    "categories": [
+      "urban",
+      "street"
+    ],
+    "tags": [
+      "Amsterdam",
+      "canal houses",
+      "rain",
+      "hearts"
+    ],
+    "alt": "Amsterdam canal houses with playful heart decals and ivy.",
+    "caption": "Canal houses stitched with playful hearts and rain-polished bricks.",
+    "localImage": "/images/lux/urban/amsterdam-street-hearts.jpg",
+    "essay": "Brief sunshine painted the stoops before another shower stalked in from the IJ. Someone hid tiny heart decals between the gables so passersby would look up from their handlebars."
+  },
+  {
+    "src": "images/passage-den-haag-roof.jpg",
+    "title": "The Passage, Den Haag",
+    "displayDate": "2024-06-12",
+    "date": "2024-06-12",
+    "location": "De Passage, Den Haag, Netherlands",
+    "categories": [
+      "architecture",
+      "urban"
+    ],
+    "tags": [
+      "arcade",
+      "The Hague",
+      "glass",
+      "heritage"
+    ],
+    "alt": "Glass barrel vault of The Passage arcade in The Hague.",
+    "caption": "Glass barrel vault guiding late afternoon shoppers.",
+    "localImage": "/images/lux/urban/passage-den-haag-roof.jpg",
+    "essay": "In The Passage the lamps march in mirrored formation while a barrel vault diffuses North Sea cloud light. Every footstep echoes as if the arcade is a whispering gallery."
+  },
+  {
+    "src": "images/summer-bouquet-tram-stop.jpg",
+    "title": "Bouquet at the Tram Stop",
+    "displayDate": "2024-06-13",
+    "date": "2024-06-13",
+    "location": "World Forum, Den Haag, Netherlands",
+    "categories": [
+      "urban",
+      "people"
+    ],
+    "tags": [
+      "tram",
+      "bouquet",
+      "curly hair",
+      "Amsterdam"
+    ],
+    "alt": "Woman with curly hair carrying blush roses at an Amsterdam tram stop.",
+    "caption": "Curly-haired commuter balancing blush roses and a text thread.",
+    "localImage": "/images/lux/urban/summer-bouquet-tram-stop.jpg",
+    "essay": "She balanced two bouquets, a phone, and the soft panic of missing the next tram. The roses matched the blush of her cheeks after the summer shower passed."
+  },
+  {
+    "src": "images/apple-river-startrails.jpg",
+    "title": "Apple River Starstorm",
+    "displayDate": "2024-05-04",
+    "date": "2024-05-04",
+    "location": "Apple River State Park, Illinois",
+    "categories": [
+      "astro",
+      "nature"
+    ],
+    "tags": [
+      "star trails",
+      "Illinois",
+      "prairie",
+      "long exposure"
+    ],
+    "alt": "Star trails arcing over a prairie trailhead sign in Illinois.",
+    "caption": "Two-hour swirl over the prairie trailhead in western Illinois.",
+    "localImage": "/images/lux/astro/apple-river-startrails.jpg",
+    "essay": "Polaris scratched calligraphy across the sky while the park bulletin board glowed like an altar. Coyotes kept time in the distance during the two-hour exposure."
+  },
+  {
+    "src": "images/aurora-palette-lakemichigan.jpg",
+    "title": "Aurora Palette over Door County",
+    "displayDate": "2025-11-11",
+    "date": "2025-11-11",
+    "location": "Winnetka, Illinois",
+    "categories": [
+      "aurora",
+      "water"
+    ],
+    "tags": [
+      "KP-9",
+      "Lake Michigan",
+      "storm",
+      "red aurora"
+    ],
+    "alt": "Red and green aurora curtains above Lake Michigan.",
+    "caption": "Red organ pipes melting into teal over Lake Michigan.",
+    "localImage": "/images/lux/aurora/aurora-palette-lakemichigan.jpg",
+    "essay": "Columns of crimson and teal stitched themselves above the Door County cliffs. The lake felt like a mirror to some Martian storm we had no business seeing."
+  },
+  {
+    "src": "images/blue-aurora-lake-michigan.jpg",
+    "title": "Teal Veil, Midnight Lake",
+    "displayDate": "2025-11-11",
+    "date": "2025-11-11",
+    "location": "Winnetka, Illinois",
+    "categories": [
+      "aurora",
+      "water"
+    ],
+    "tags": [
+      "Lake Michigan",
+      "cyan",
+      "night",
+      "silence"
+    ],
+    "alt": "Soft teal aurora over calm Lake Michigan waters.",
+    "caption": "Quietest phase of the storm, lake like inked vellum.",
+    "localImage": "/images/lux/aurora/blue-aurora-lake-michigan.jpg",
+    "essay": "After the frenzy of KP-9, the sky settled into pewter blues and whispered curtains. The lake became vellum and every ripple looked like pen strokes."
+  },
+  {
+    "src": "images/wilmette-silhouette-aurora.jpg",
+    "title": "Reverie under KP-9",
+    "displayDate": "2025-11-11",
+    "date": "2025-11-11",
+    "location": "Gilson Park, Wilmette, Illinois",
+    "categories": [
+      "aurora",
+      "people"
+    ],
+    "tags": [
+      "KP-9",
+      "celebration",
+      "park",
+      "silhouette"
+    ],
+    "alt": "Person raising arms under a crimson aurora in Wilmette, Illinois.",
+    "caption": "Arms raised as red aurora floods Gilson Park.",
+    "localImage": "/images/lux/aurora/wilmette-silhouette-aurora.jpg",
+    "essay": "Neighbors and strangers filled the beach in disbelief. We raised our arms to greet the crimson curtains that usually belong to latitudes thousands of miles away."
+  },
+  {
+    "src": "images/shadow-under-aurora.jpg",
+    "title": "Self-Portrait in Electric Mist",
+    "displayDate": "2025-11-11",
+    "date": "2025-11-11",
+    "location": "Winnetka, Illinois",
+    "categories": [
+      "aurora",
+      "self"
+    ],
+    "tags": [
+      "self-portrait",
+      "tripod",
+      "mist",
+      "KP-9"
+    ],
+    "alt": "Shadowed self-portrait on a pier beneath auroral glow.",
+    "caption": "Tripod shadow leaning into violet curtains.",
+    "localImage": "/images/lux/aurora/shadow-under-aurora.jpg",
+    "essay": "My own silhouette blurred on the pier as aurora smoke drifted over the lakefront. Camera, tripod, and body became a single line drawing in the electric mist."
+  },
+  {
+    "src": "images/solar-eclipse-diamond-ring.jpg",
+    "title": "Diamond Ring over Wapakoneta",
+    "displayDate": "2024-04-08",
+    "date": "2024-04-08",
+    "location": "Holliday Park, Indianapolis, Indiana",
+    "categories": [
+      "astro"
+    ],
+    "tags": [
+      "totality",
+      "diamond ring",
+      "eclipse",
+      "sun"
+    ],
+    "alt": "Diamond ring effect during the 2024 total solar eclipse.",
+    "caption": "Photosphere bursting through totality’s last seam.",
+    "localImage": "/images/lux/astro/solar-eclipse-diamond-ring.jpg",
+    "essay": "The last bead of sunlight burst through a lunar valley and everyone screamed. Dust motes glowed in the farm road air like glitter as daylight slammed back on."
+  },
+  {
+    "src": "images/solar-eclipse-flares.jpg",
+    "title": "Baily's Beads",
+    "displayDate": "2024-04-08",
+    "date": "2024-04-08",
+    "location": "Holliday Park, Indianapolis, Indiana",
+    "categories": [
+      "astro"
+    ],
+    "tags": [
+      "Baily's beads",
+      "eclipse",
+      "prominences"
+    ],
+    "alt": "Baily's beads and solar flares at the edge of totality.",
+    "caption": "Promontories glowing at the rim of the Moon’s shadow.",
+    "localImage": "/images/lux/astro/solar-eclipse-flares.jpg",
+    "essay": "Baily's beads shimmered like pearls, revealing the jagged profile of the Moon. Pink prominences licked out, proof that the Sun is never actually still."
+  },
+  {
+    "src": "images/totality-corona-prominences.jpg",
+    "title": "Corona with Prominences",
+    "displayDate": "2024-04-08",
+    "date": "2024-04-08",
+    "location": "Holliday Park, Indianapolis, Indiana",
+    "categories": [
+      "astro"
+    ],
+    "tags": [
+      "corona",
+      "prominences",
+      "eclipse"
+    ],
+    "alt": "Total solar eclipse corona with pink prominences.",
+    "caption": "Feathered magnetic loops and hot pink flares around the Moon.",
+    "localImage": "/images/lux/astro/totality-corona-prominences.jpg",
+    "essay": "For four minutes the sky unlocked silver streamers and violet tongues of plasma. The corona looked hand-brushed, each stroke guided by invisible magnetic fields."
+  },
+  {
+    "src": "images/eclipse-lapse-composite.jpg",
+    "title": "Totality Progression",
+    "displayDate": "2024-04-08",
+    "date": "2024-04-08",
+    "location": "Holliday Park, Indianapolis, Indiana",
+    "categories": [
+      "astro"
+    ],
+    "tags": [
+      "composite",
+      "timeline",
+      "eclipse phases"
+    ],
+    "alt": "Composite sequence showing phases of the 2024 solar eclipse.",
+    "caption": "Composite arc of crescents tightening into full shadow.",
+    "localImage": "/images/lux/astro/eclipse-lapse-composite.jpg",
+    "essay": "Every ten minutes a new frame went into the log book. Stacked together the crescents look like teeth biting into the day until only night remained."
+  },
+  {
+    "src": "images/solar-eclipse-crescent.jpg",
+    "title": "Filtered Crescent",
+    "displayDate": "2024-04-08",
+    "date": "2024-04-08",
+    "location": "Holliday Park, Indianapolis, Indiana",
+    "categories": [
+      "astro"
+    ],
+    "tags": [
+      "partial eclipse",
+      "sunspots",
+      "filters"
+    ],
+    "alt": "Golden solar crescent against a black sky.",
+    "caption": "Sharp yellow sliver minutes before totality.",
+    "localImage": "/images/lux/astro/solar-eclipse-crescent.jpg",
+    "essay": "Filtered sunlight turned the midday sky into a velvet theater. Tiny sunspots freckled the golden rind moments before the world dimmed."
+  },
+  {
+    "src": "images/kadena-f16-lineup.jpg",
+    "title": "Kadena Line Checks",
+    "displayDate": "2024-12-19",
+    "date": "2024-12-19",
+    "location": "Kadena Air Base, Okinawa, Japan",
+    "categories": [
+      "aviation",
+      "military"
+    ],
+    "tags": [
+      "F-16",
+      "Thunderbirds",
+      "runway",
+      "Okinawa"
+    ],
+    "alt": "Line of F-16 jets on the Kadena Air Base flight line.",
+    "caption": "Thunderbirds and Vipers idling under arched hangars in Okinawa.",
+    "localImage": "/images/lux/aviation/kadena-f16-lineup.jpg",
+    "essay": "Heat haze shimmered along the flight line as the Thunderbirds idled beside locally based Vipers. The arching shelters echoed the hills crouched behind them."
+  },
+  {
+    "src": "images/sagittarius-galactic-core.jpg",
+    "title": "Sagittarius Dust Lanes",
+    "displayDate": "2024-05-04",
+    "date": "2024-05-04",
+    "location": "Apple River State Park, Illinois",
+    "categories": [
+      "astro"
+    ],
+    "tags": [
+      "Milky Way",
+      "nebulae",
+      "dust lanes"
+    ],
+    "alt": "Detailed photograph of the Sagittarius region of the Milky Way.",
+    "caption": "Cleaned stack of nebulae and soot near Qinghai.",
+    "localImage": "/images/lux/astro/sagittarius-galactic-core.jpg",
+    "essay": "Stacked exposures revealed turquoise nebulae intertwined with rust-colored dust lanes. The galactic center feels less like space and more like a living tapestry."
+  },
+  {
+    "src": "images/qinghai-galactic-spine.jpg",
+    "title": "Galactic Spine over Qinghai",
+    "displayDate": "2023-08-12",
+    "date": "2023-08-12",
+    "location": "Gegentala Grasslands, Ulanqab, Inner Mongolia, China",
+    "categories": [
+      "astro",
+      "nature"
+    ],
+    "tags": [
+      "Milky Way",
+      "vertical",
+      "plateau"
+    ],
+    "alt": "Vertical Milky Way pillar rising over plateau clouds.",
+    "caption": "Vertical Milky Way erupting from plateau clouds.",
+    "localImage": "/images/lux/astro/qinghai-galactic-spine.jpg",
+    "essay": "The Milky Way erupted vertically from the plateau clouds like incense smoke. Dust pillars rose straight into a sky unbothered by any city’s glow."
+  },
+  {
+    "src": "images/gobi-meteor-storm.jpg",
+    "title": "Desert Perseid Bloom",
+    "displayDate": "2023-08-13",
+    "date": "2023-08-13",
+    "location": "Gegentala Grasslands, Ulanqab, Inner Mongolia, China",
+    "categories": [
+      "astro",
+      "nature"
+    ],
+    "tags": [
+      "Perseids",
+      "yurts",
+      "camp",
+      "desert"
+    ],
+    "alt": "Nomad camp illuminated under a meteor shower.",
+    "caption": "Nomad camp lit while meteors radiate from Cassiopeia.",
+    "localImage": "/images/lux/astro/gobi-meteor-storm.jpg",
+    "essay": "Yurts encircled the salt pan like a necklace while Perseids stitched glowing seams overhead. Every shout in the dark was another meteor scored across the frame."
+  },
+  {
+    "src": "images/northwestern-first-snow-dji.jpg",
+    "title": "Northwestern First Snow",
+    "displayDate": "2023-10-31",
+    "date": "2023-10-31",
+    "location": "Northwestern Campus, Evanston, Illinois",
+    "categories": [
+      "urban",
+      "aerial"
+    ],
+    "tags": [
+      "Northwestern",
+      "snow",
+      "drone",
+      "campus"
+    ],
+    "alt": "Aerial of Northwestern University during a colorful first snowfall.",
+    "caption": "Fall canopy and Gothic hall swallowed by lake-effect squall.",
+    "localImage": "/images/lux/urban/northwestern-first-snow-dji.jpg",
+    "essay": "Lake-effect snow collided with late-autumn color to paint Northwestern’s campus in improbable hues. The drone hovered just long enough before the batteries froze."
+  },
+  {
+    "src": "images/montreal-belvedere-tulips.jpg",
+    "title": "Belvédère Kondiaronk, Montréal",
+    "displayDate": "2025-05-24",
+    "date": "2025-05-24",
+    "location": "Belvédère Kondiaronk, Montréal, Québec, Canada",
+    "categories": [
+      "urban",
+      "nature"
+    ],
+    "tags": [
+      "Montréal",
+      "tulips",
+      "rain",
+      "skyline"
+    ],
+    "alt": "Pink tulip field leading to Kondiaronk Belvedere overlooking downtown Montréal.",
+    "caption": "Rain-damp tulips guarding the downtown lookout.",
+    "localImage": "/images/lux/urban/montreal-belvedere-tulips.jpg",
+    "essay": "Tulips held raindrops like tiny glass bulbs while the Montréal skyline blurred behind the belvedere balustrade. Couples huddled under umbrellas waiting for the clouds to lift."
+  },
+  {
+    "src": "images/2024-01-lake-michigan-flight.jpeg",
+    "title": "Frozen Lake Michigan Flight",
+    "displayDate": "2024-01-22",
+    "date": "2024-01-22",
+    "location": "Chicago, Illinois",
+    "categories": [
+      "nature",
+      "aerial"
+    ],
+    "tags": [
+      "drone",
+      "ice",
+      "winter",
+      "Chicago"
+    ],
+    "alt": "Drone view of frozen Lake Michigan under winter haze.",
+    "caption": "Drone pass over a sealed lake in subzero Chicago.",
+    "localImage": "/images/lux/nature/2024-01-lake-michigan-flight.jpeg",
+    "essay": "A sealed lake looked like cracked porcelain from altitude. Flying in subzero wind makes your fingers go numb before the shutter even clicks."
+  },
+  {
+    "src": "images/2024-05-09-green-bay-aurora.jpeg",
+    "title": "Aurora over Green Bay",
+    "displayDate": "2024-05-09",
+    "date": "2024-05-09",
+    "location": "Green Bay, Wisconsin",
+    "categories": [
+      "aurora"
+    ],
+    "tags": [
+      "KP-9",
+      "Green Bay",
+      "storm"
+    ],
+    "alt": "Intense aurora curtains above Green Bay, Wisconsin.",
+    "caption": "KP-9 storm after an overnight escape from Evanston.",
+    "localImage": "/images/lux/aurora/2024-05-09-green-bay-aurora.jpeg",
+    "essay": "The escape from Evanston paid off just after midnight. Curtains ripped across the bay and I forgot how tired the drive had made me."
+  },
+  {
+    "src": "images/2024-07-stroksnesveen-midnight.jpg",
+    "title": "Midnatt Jordbærhøst 🍓, Bjørklund Gård, Strøksnes, Nordland, Norway",
+    "displayDate": "2024-07-12",
+    "date": "2024-07-12",
+    "location": "Strøksnes, Nordland, Norway",
+    "categories": [
+      "nature",
+      "travel"
+    ],
+    "tags": [
+      "midnight sun",
+      "strawberry farm",
+      "Norway"
+    ],
+    "alt": "Midnight sun bathing an Arctic strawberry farm.",
+    "caption": "Endless twilight with a kind host inside the Arctic Circle.",
+    "localImage": "/images/lux/nature/2024-07-stroksnesveen-midnight.jpg",
+    "essay": "Midnight in Strøksnes tastes like strawberries and sea salt. The farmer kept pouring coffee while twilight refused to end."
+  },
+  {
+    "src": "images/2021-08-14-siguniangshan-expedition.jpeg",
+    "title": "Siguniangshan Base Camp",
+    "displayDate": "2021-08-14",
+    "date": "2021-08-14",
+    "location": "Sichuan, China",
+    "categories": [
+      "nature",
+      "travel"
+    ],
+    "tags": [
+      "expedition",
+      "lodge",
+      "mountains"
+    ],
+    "alt": "Morning light spilling across a Siguniangshan mountain lodge.",
+    "caption": "First expedition morning with a new kit in Sichuan.",
+    "localImage": "/images/lux/nature/2021-08-14-siguniangshan-expedition.jpeg",
+    "essay": "First light spilled across the expedition lodge like a benediction. Every crampon and thermos shone, waiting for the climb to Base Camp II."
+  },
+  {
+    "src": "images/BlueButterfly.jpeg",
+    "title": "Blue Butterfly Gleam",
+    "displayDate": "2021-08-11",
+    "date": "2021-08-11",
+    "location": "Golog, Qinghai, China",
+    "categories": [
+      "macro",
+      "nature"
+    ],
+    "tags": [
+      "butterfly",
+      "macro",
+      "flower"
+    ],
+    "alt": "Macro of a blue butterfly resting on a purple alpine flower in Qinghai.",
+    "caption": "Macro study of a blue wing landing on a purple bloom in Qinghai.",
+    "localImage": "/images/lux/nature/BlueButterfly.jpeg",
+    "essay": "At 3,600 meters even the butterflies move slowly as they warm their wings. This one chose a purple bloom that matched the thin-air chill."
+  },
+  {
+    "src": "images/BlueStarTrails.jpeg",
+    "title": "Blue Star Trails",
+    "displayDate": "2021-12-14",
+    "date": "2021-12-14",
+    "location": "Beijing, China",
+    "categories": [
+      "astro",
+      "urban"
+    ],
+    "tags": [
+      "star trails"
+    ],
+    "alt": "Star trails above tiled roofs of a Beijing courtyard.",
+    "caption": "Two-hour spin above a downtown Beijing siheyuan near Bai Ta Si.",
+    "localImage": "/images/lux/astro/BlueStarTrails.jpeg",
+    "essay": "Two hours of rotation above the Olympic Greens into a whirlpool of light, with a flash of Geminids."
+  },
+  {
+    "src": "images/BuddahGalaxy.jpeg",
+    "title": "Buddha Galaxy",
+    "displayDate": "2021-08-12",
+    "date": "2021-08-12",
+    "location": "Golog, Qinghai, China",
+    "categories": [
+      "astro",
+      "spiritual"
+    ],
+    "tags": [
+      "Buddha",
+      "Milky Way",
+      "temple"
+    ],
+    "alt": "Buddha statue glowing beneath the Milky Way in Qinghai.",
+    "caption": "Temple courtyard deep in Qinghai with the Milky Way for a roof.",
+    "localImage": "/images/lux/astro/BuddahGalaxy.jpeg",
+    "essay": "A lone Buddha kept vigil beneath Bortle 1 skies. The Milky Way felt like a roof beam sheltering the courtyard."
+  },
+  {
+    "src": "images/JinmaoInterior.jpeg",
+    "title": "Jinmao Interior Light",
+    "displayDate": "2023-10-12",
+    "date": "2023-10-12",
+    "location": "Jinmao Tower, Shanghai, China",
+    "categories": [
+      "architecture",
+      "urban"
+    ],
+    "tags": [
+      "atrium",
+      "reflections",
+      "Shanghai"
+    ],
+    "alt": "Glass atrium at Jinmao Tower with layered light reflections.",
+    "caption": "Skylit atrium reflections inside the tower's elevator banks.",
+    "localImage": "/images/lux/urban/JinmaoInterior.jpeg",
+    "essay": "Looking down Jinmao’s atrium is like staring into a kaleidoscope. Elevators flash past while skylight pours gold onto the lattice."
+  },
+  {
+    "src": "images/LujiazuiTree.jpeg",
+    "title": "Lujiazui Tree Study",
+    "displayDate": "2021-04-18",
+    "date": "2021-04-18",
+    "location": "Lujiazui, Shanghai, China",
+    "categories": [
+      "urban",
+      "nature"
+    ],
+    "tags": [
+      "fog",
+      "tree",
+      "skyscrapers"
+    ],
+    "alt": "Bare branch framed between foggy Shanghai towers.",
+    "caption": "Fog-swallowed towers with one stubborn branch for a soulless pause.",
+    "localImage": "/images/lux/urban/LujiazuiTree.jpeg",
+    "essay": "A single branch refused to bow to the fogbank blanketing Lujiazui’s towers. For a moment the financial district felt pastoral."
+  },
+  {
+    "src": "images/NianbaoyuzeSunset.jpeg",
+    "title": "Nyainbo Yuze Sunset",
+    "displayDate": "2021-08-17",
+    "date": "2021-08-17",
+    "location": "Nyainbo Yuze, Qinghai, China",
+    "categories": [
+      "nature",
+      "mountains"
+    ],
+    "tags": [
+      "sunset",
+      "Tibetan plateau",
+      "glow"
+    ],
+    "alt": "Sunset glow over Nyainbo Yuze ridgelines in Qinghai.",
+    "caption": "Tibetan ridgelines catching one last burst of amber light.",
+    "localImage": "/images/lux/nature/NianbaoyuzeSunset.jpeg",
+    "essay": "Amber light wrapped the Nyainbo Yuze massif like a shawl. Prayer flags snapped below as the last warmth slipped away."
+  },
+  {
+    "src": "images/OldForbiddenCity.jpeg",
+    "title": "Old Forbidden City",
+    "displayDate": "2020-05-20",
+    "date": "2020-05-20",
+    "location": "Beijing, China",
+    "categories": [
+      "urban",
+      "history"
+    ],
+    "tags": [
+      "monochrome",
+      "corridor",
+      "imperial"
+    ],
+    "alt": "Black-and-white faded corridor inside the Forbidden City.",
+    "caption": "Faded monochrome treatment to mimic archival Beijing postcards.",
+    "localImage": "/images/lux/urban/OldForbiddenCity.jpeg",
+    "essay": "I processed the corridor like a washed film plate to match the mood of the pandemic-quiet palace. Every worn stone still holds dynastic echoes."
+  },
+  {
+    "src": "images/SiguniangClouds.jpeg",
+    "title": "Siguniang Clouds",
+    "displayDate": "2021-08-15",
+    "date": "2021-08-15",
+    "location": "Sichuan, China",
+    "categories": [
+      "nature",
+      "mountains"
+    ],
+    "tags": [
+      "lenticular cloud",
+      "summit",
+      "wind"
+    ],
+    "alt": "Lenticular cloud like a hat swirling above Siguniangshan.",
+    "caption": "A cloud hat twirling like a wind-lifted skirt over the summit.",
+    "localImage": "/images/lux/nature/SiguniangClouds.jpeg",
+    "essay": "A lenticular cloud spun itself into a twirling skirt above the massif. The wind roared loud enough to drown out our shouts across camp."
+  },
+  {
+    "src": "images/SiguniangSunrise.jpeg",
+    "title": "Siguniang Sunrise Glow",
+    "displayDate": "2021-08-15",
+    "date": "2021-08-15",
+    "location": "Sichuan, China",
+    "categories": [
+      "nature",
+      "mountains"
+    ],
+    "tags": [
+      "alpenglow",
+      "ridges",
+      "dawn"
+    ],
+    "alt": "Sunrise washing Siguniang peaks in rosy color.",
+    "caption": "Alpenglow revealing sharp ridges as the valley wakes.",
+    "localImage": "/images/lux/nature/SiguniangSunrise.jpeg",
+    "essay": "Alpenglow cracked open the ridges and sent pink light cascading into the valley. The cold left our fingers only when the sun touched our tents."
+  },
+  {
+    "src": "images/WumenStartrails.jpeg",
+    "title": "Wumen Star Trails",
+    "displayDate": "2020-05-14",
+    "date": "2020-05-14",
+    "location": "Forbidden City, Beijing, China",
+    "categories": [
+      "astro",
+      "urban"
+    ],
+    "tags": [
+      "star trails",
+      "palace",
+      "night"
+    ],
+    "alt": "Star trails above the midnight silhouette of Wumen Gate in the Forbidden City.",
+    "caption": "Midnight exposure keeping the palace dead center while the sky spins.",
+    "localImage": "/images/lux/astro/WumenStartrails.jpeg",
+    "essay": "Centering Wumen Gate while the sky spun felt audacious. The palace courtyard slept while satellites scribbled diagonals across the exposure."
+  },
+  {
+    "src": "images/AuroraEagle.jpeg",
+    "title": "High Cliff Aurora",
+    "displayDate": "2024-05-09",
+    "date": "2024-05-09",
+    "location": "High Cliff State Park, Wisconsin",
+    "categories": [
+      "aurora",
+      "nature"
+    ],
+    "tags": [
+      "Lake Winnebago",
+      "forest",
+      "wide angle"
+    ],
+    "alt": "Wide-angle aurora over High Cliff State Park above Lake Winnebago.",
+    "caption": "Wide-angle sweep over Lake Winnebago with the forest and car lit by KP-9.",
+    "localImage": "/images/lux/aurora/AuroraEagle.jpeg",
+    "essay": "The whole treeline bowed under violet curtains. Even the parked car took on the glow of KP-9."
+  },
+  {
+    "src": "images/GroupUnderAurora.jpeg",
+    "title": "Field Crew under KP-9",
+    "displayDate": "2024-05-09",
+    "date": "2024-05-09",
+    "location": "High Cliff State Park, Wisconsin",
+    "categories": [
+      "aurora",
+      "people"
+    ],
+    "tags": [
+      "friends",
+      "silhouettes",
+      "KP-9"
+    ],
+    "alt": "Silhouettes gathered beneath magenta aurora curtains.",
+    "caption": "Nobody spoke while purple banners engulfed the entire dome.",
+    "localImage": "/images/lux/aurora/GroupUnderAurora.jpeg",
+    "essay": "For once no one spoke or checked a phone. Purple banners rained over our field crew and we just stood there breathing in ionized night."
+  },
+  {
+    "src": "images/PurpleAurora.jpeg",
+    "title": "Purple Aurora Band",
+    "displayDate": "2024-05-09",
+    "date": "2024-05-09",
+    "location": "High Cliff State Park, Wisconsin",
+    "categories": [
+      "aurora"
+    ],
+    "tags": [
+      "proton arc",
+      "purple",
+      "night"
+    ],
+    "alt": "Purple aurora bands streaking above a dark horizon.",
+    "caption": "Proton arcs fanning out like drapes over Wisconsin farm fields.",
+    "localImage": "/images/lux/aurora/PurpleAurora.jpeg",
+    "essay": "Proton arcs fanned out like theater drapes over farm fields. The camera hardly kept up with how quickly they shifted."
+  },
+  {
+    "src": "images/BermudaDJI.jpeg",
+    "title": "Bermudian Reef",
+    "displayDate": "2024-11-29",
+    "date": "2024-11-29",
+    "location": "Horseshoe Bay, Bermuda",
+    "categories": [
+      "nature",
+      "aerial"
+    ],
+    "tags": [
+      "drone",
+      "reef",
+      "turquoise"
+    ],
+    "alt": "Drone shot of Bermuda's Horseshoe Bay pink sand meeting turquoise surf.",
+    "caption": "Pink sand and reef shadows blurred together from 120 feet up.",
+    "localImage": "/images/lux/nature/BermudaDJI.jpeg",
+    "essay": "Hovering 120 feet above Horseshoe Bay shows every pastel seam where pink sand meets turquoise. Trade winds buffeted the drone but the reef stayed sharp."
+  },
+  {
+    "src": "images/BlueBlossom.jpeg",
+    "title": "Northwestern Snowlight Blossoms",
+    "displayDate": "2024-04-10",
+    "date": "2024-04-10",
+    "location": "Evanston, Illinois",
+    "categories": [
+      "nature",
+      "night"
+    ],
+    "tags": [
+      "magnolia",
+      "campus",
+      "lamp light"
+    ],
+    "alt": "Lamp-lit magnolia on Northwestern campus glowing icy white against the night.",
+    "caption": "Campus lamps made the petals look dusted in fresh powder.",
+    "localImage": "/images/lux/nature/BlueBlossom.jpeg",
+    "essay": "Sodium vapor lamps turned the magnolia petals into faux snow. Spring on campus often feels like winter cosplaying as cherry blossom season."
+  },
+  {
+    "src": "images/CherryBlossom.jpeg",
+    "title": "Lamp-Lit Cherry Glow",
+    "displayDate": "2024-04-14",
+    "date": "2024-04-14",
+    "location": "Evanston, Illinois",
+    "categories": [
+      "nature",
+      "night"
+    ],
+    "tags": [
+      "cherry blossom",
+      "lamp",
+      "blue hour"
+    ],
+    "alt": "Cherry blossoms glowing pink under a warm street lamp during blue hour.",
+    "caption": "Blue hour + warm lamp made the tree feel like neon cotton candy.",
+    "localImage": "/images/lux/nature/CherryBlossom.jpeg",
+    "essay": "A single tungsten lamp transformed the cherry tree into neon cotton candy. The sky still held a lick of blue hour as cyclists rode past oblivious."
+  },
+  {
+    "src": "images/ChicagoSkyline.jpeg",
+    "title": "Skylines & Puddles",
+    "displayDate": "2023-09-07",
+    "date": "2023-09-07",
+    "location": "Chicago, Illinois",
+    "categories": [
+      "urban",
+      "aerial"
+    ],
+    "tags": [
+      "drone",
+      "lakefront",
+      "skyline"
+    ],
+    "alt": "Drone view over Lake Michigan looking west toward Chicago's skyline and Willis Tower.",
+    "caption": "Facing west from over the lake so the harbors frame the skyline.",
+    "localImage": "/images/lux/urban/ChicagoSkyline.jpeg",
+    "essay": "From over the lake the harbors look like puddles of mercury framing the Loop. Willis Tower sat dead center like a sundial gnomon."
+  },
+  {
+    "src": "images/ShanghaiSkyline.jpeg",
+    "title": "Shanghai Skyline Fade",
+    "displayDate": "2023-07-05",
+    "date": "2023-07-05",
+    "location": "Lujiazui, Shanghai, China",
+    "categories": [
+      "urban",
+      "aerial"
+    ],
+    "tags": [
+      "neon",
+      "skyscrapers",
+      "night"
+    ],
+    "alt": "Drone shot 600 meters above Shanghai's trio of towers glowing at night.",
+    "caption": "High-altitude hover with neon blues and golds for a cyberpunk tone.",
+    "localImage": "/images/lux/urban/ShanghaiSkyline.jpeg",
+    "essay": "A 600-meter hover over Lujiazui turned the trio of towers into circuit boards. Cyan and gold grading pushed the whole scene into cyberpunk territory."
+  },
+  {
+    "src": "images/UVStyleSunset.jpeg",
+    "title": "UV-Style Sunset",
+    "displayDate": "2023-10-01",
+    "date": "2023-10-01",
+    "location": "Lake Michigan Shore, Illinois",
+    "categories": [
+      "nature"
+    ],
+    "tags": [
+      "sunset",
+      "false color",
+      "magenta"
+    ],
+    "alt": "Hyper-saturated sunset with ultraviolet hues.",
+    "caption": "False-color grading chases what the sensor almost saw.",
+    "localImage": "/images/lux/nature/UVStyleSunset.jpeg",
+    "essay": "By nudging the curves into ultraviolet territory, the sunset felt like a synesthetic memory. Sensors almost saw it this way; grading just finished the job."
+  },
+  {
+    "src": "images/VancouverBike.jpeg",
+    "title": "Seawall Cyclist",
+    "displayDate": "2023-03-26",
+    "date": "2023-03-26",
+    "location": "Stanley Park Seawall, Vancouver, Canada",
+    "categories": [
+      "urban",
+      "people"
+    ],
+    "tags": [
+      "bike",
+      "seawall",
+      "mountains"
+    ],
+    "alt": "Rental bike paused along Vancouver's seawall with the TV tower and snow peaks beyond.",
+    "caption": "Rental frame parked in front while the TV tower points at the snowy ridgeline.",
+    "localImage": "/images/lux/urban/VancouverBike.jpeg",
+    "essay": "Rental bikes may squeak but they get you to the seawall’s best vantage. Rain left the stones glassy while the TV tower aligned with the Coast Mountains."
+  },
+  {
+    "src": "images/VancouverDT.jpeg",
+    "title": "Vancouver Street Study",
+    "displayDate": "2023-03-26",
+    "date": "2023-03-26",
+    "location": "Robson Street, Vancouver, Canada",
+    "categories": [
+      "urban",
+      "street"
+    ],
+    "tags": [
+      "downtown",
+      "mountains",
+      "oil paint look"
+    ],
+    "alt": "Daylight view down Vancouver's Robson Street with snow mountains beyond.",
+    "caption": "Robson Street rendered like an oil painting with the Coast Mountains behind.",
+    "localImage": "/images/lux/urban/VancouverDT.jpeg",
+    "essay": "Robson Street was busy with umbrellas, but the real drama sat in the Coast Mountains beyond. Painterly grading turned the scene into a moving oil study."
+  }
+]

@@ -1,0 +1,17 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+---
+
+<SiteLayout title="Travel — Viasacra" description="Interactive atlas tracing years of flights, trains, and drives." active="travel" mainClass="wrap project-detail travel-page">
+  <header class="project-detail__header">
+    <h1>Travel</h1>
+    <p class="project-detail__lead">An interactive atlas tracing two years of flights, trains, and drives—softened near home for privacy.</p>
+  </header>
+
+  <section class="project-detail__body">
+    <div class="project-detail__embed">
+      <iframe src="/projects/reizentraj/reizentraj.html" title="Travel trajectories map" loading="lazy" allowfullscreen></iframe>
+    </div>
+    <p class="project-detail__note">Drag the floating console to change modes, scrub the timeline, or highlight specific journeys.</p>
+  </section>
+</SiteLayout>

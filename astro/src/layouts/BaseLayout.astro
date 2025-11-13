@@ -1,0 +1,20 @@
+---
+import type { Props as SiteLayoutProps } from './SiteLayout.astro';
+import SiteLayout from './SiteLayout.astro';
+
+const {
+  active = 'lux',
+  mainClass = 'wrap lux-page',
+  ...rest
+} = Astro.props as SiteLayoutProps;
+---
+
+<SiteLayout {...rest} active={active} mainClass={mainClass}>
+  <Fragment slot="head">
+    <slot name="head" />
+  </Fragment>
+  <slot />
+  <Fragment slot="afterScripts">
+    <slot name="afterScripts" />
+  </Fragment>
+</SiteLayout>

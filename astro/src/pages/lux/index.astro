@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LuxCard from '../../components/LuxCard.astro';
+import { getCollection } from 'astro:content';
+
+const entries = (await getCollection('lux')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const categories = Array.from(
+  new Set(entries.flatMap((entry) => entry.data.categories.map((cat) => cat.toLowerCase())))
+).sort();
+
+const grouped = entries.reduce<Record<string, typeof entries>>((acc, entry) => {
+  const year = entry.data.date.getUTCFullYear().toString();
+  if (!acc[year]) acc[year] = [];
+  acc[year].push(entry);
+  return acc;
+}, {});
+
+const years = Object.keys(grouped)
+  .map((year) => Number(year))
+  .sort((a, b) => b - a);
+---
+
+<BaseLayout title="Lux — ViaSacra" description="Astro-driven Lux gallery with Cloudinary imagery and Markdown essays.">
+  <section class="hero">
+    <p class="hero__eyebrow">Lux</p>
+    <h1>Wanderlust &amp; Light.</h1>
+    <p class="hero__lead">
+      Each figure lives in Markdown with a short essay, YAML metadata, and a Cloudinary-powered hero that can scale for retina displays.
+      Filter by subject or jump down the timeline to revisit a specific season.
+    </p>
+    <div class="hero__timeline">
+      {years.map((year) => (
+        <a href={`#year-${year}`}>{year}</a>
+      ))}
+    </div>
+  </section>
+
+  <section class="filters">
+    <span>Filter</span>
+    <div class="filters__buttons">
+      <button data-filter="all" class="is-active">All</button>
+      {categories.map((category) => (
+        <button data-filter={category}>{category}</button>
+      ))}
+    </div>
+  </section>
+
+  {years.map((year) => (
+    <section id={`year-${year}`} class="year-group">
+      <div class="year-group__heading">
+        <h2>{year}</h2>
+        <p>{grouped[year.toString()].length} photographs</p>
+      </div>
+      <div class="lux-grid">
+        {grouped[year.toString()].map((entry) => (
+          <LuxCard entry={entry} />
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <script>
+    const buttons = Array.from(document.querySelectorAll('.filters__buttons button'));
+    const cards = Array.from(document.querySelectorAll('.lux-card'));
+    let active = 'all';
+
+    const update = () => {
+      cards.forEach((card) => {
+        const categories = (card.dataset.categories || '').split(',').filter(Boolean);
+        const match = active === 'all' || categories.includes(active);
+        card.style.display = match ? '' : 'none';
+      });
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        active = button.dataset.filter || 'all';
+        buttons.forEach((btn) => btn.classList.toggle('is-active', btn === button));
+        update();
+      });
+    });
+
+    update();
+  </script>
+</BaseLayout>

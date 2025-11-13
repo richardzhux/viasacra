@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { buildCloudinarySrc } from '../../lib/cloudinary';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const luxEntries = await getCollection('lux');
+  return luxEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'lux'>;
+}
+
+const { entry } = Astro.props as Props;
+const { Content } = await entry.render();
+const hero = buildCloudinarySrc(entry.data.localImage, 'f_auto,q_auto,c_fit,w_1800');
+---
+
+<BaseLayout title={`${entry.data.title} — Lux`} description={entry.data.caption}>
+  <article class="lux-article">
+    <div class="lux-article__hero">
+      <img src={hero} alt={entry.data.alt} loading="eager" decoding="async" />
+    </div>
+    <header>
+      <p class="label">{entry.data.displayDate} · {entry.data.location}</p>
+      <h1>{entry.data.title}</h1>
+      <p class="caption">{entry.data.caption}</p>
+    </header>
+    <section class="essay">
+      <Content />
+    </section>
+    <div class="metadata">
+      <div>
+        <strong>Categories</strong>
+        <p>{entry.data.categories.join(', ')}</p>
+      </div>
+      <div>
+        <strong>Tags</strong>
+        <p>{entry.data.tags.join(', ')}</p>
+      </div>
+    </div>
+    <a class="back-link" href="/lux/">← Back to gallery</a>
+  </article>
+</BaseLayout>

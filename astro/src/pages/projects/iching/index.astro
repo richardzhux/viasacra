@@ -1,0 +1,18 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+---
+
+<SiteLayout title="I Ching — Projects — Viasacra" description="A contemplative divination console, pairing traditional hexagram casting with commentary excerpts." active="projects" mainClass="wrap project-detail">
+  <header class="project-detail__header">
+    <a class="project-detail__back" href="/projects/">← Back to projects</a>
+    <h1>I Ching</h1>
+    <p class="project-detail__lead">A contemplative divination console, pairing traditional hexagram casting with commentary excerpts.</p>
+  </header>
+
+  <section class="project-detail__body">
+    <div class="project-detail__embed">
+      <iframe src="https://iching.viasacra.space" title="I Ching divination console" loading="lazy"></iframe>
+    </div>
+    <p class="project-detail__note">Hosted via iching.viasacra.space. Locally, run <code>iching5.py</code> inside the companion repository to explore the full dialogue interface.</p>
+  </section>
+</SiteLayout>

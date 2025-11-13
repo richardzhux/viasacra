@@ -1,0 +1,38 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const notebooks = await getCollection('notebooks');
+  return notebooks.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'notebooks'>;
+}
+
+const { entry } = Astro.props as Props;
+const { Content } = await entry.render();
+---
+
+<SiteLayout
+  title={`${entry.data.title} | Viasacra`}
+  description={entry.data.subhead}
+  active="random"
+  mainClass="wrap essay-page"
+>
+  <article class="essay">
+    <header class="essay-header">
+      <p class="essay-label">{entry.data.label}</p>
+      <h1>{entry.data.title}</h1>
+      <p class="essay-subhead">{entry.data.subhead}</p>
+    </header>
+    <div class="essay-body">
+      <Content />
+    </div>
+  </article>
+</SiteLayout>

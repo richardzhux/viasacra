@@ -1,0 +1,25 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { getCollection } from 'astro:content';
+
+const entries = (await getCollection('notebooks')).sort(
+  (a, b) => b.data.priority - a.data.priority
+);
+---
+
+<SiteLayout title="Random — Viasacra" description="Dispatches from stray curiosities gathered along the way." active="random" mainClass="wrap random-page">
+  <h1>Random</h1>
+  <p class="lead">Dispatches from stray curiosities gathered along the way.</p>
+
+  <section class="random-feed">
+    {entries.map((entry) => (
+      <article class="nyt-card">
+        <a class="nyt-card__link" href={`/random/${entry.slug}/`}>
+          <h2 class="nyt-card__title">{entry.data.title}</h2>
+          <p class="nyt-card__dek">{entry.data.subhead}</p>
+          <span class="nyt-card__cta">{entry.data.cta}</span>
+        </a>
+      </article>
+    ))}
+  </section>
+</SiteLayout>

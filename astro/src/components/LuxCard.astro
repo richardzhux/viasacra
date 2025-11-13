@@ -1,0 +1,77 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { buildCloudinarySrc } from '../lib/cloudinary';
+
+interface Props {
+  entry: CollectionEntry<'lux'>;
+}
+
+const { entry } = Astro.props;
+const { data, slug } = entry;
+const imageSrc = buildCloudinarySrc(data.localImage, data.cloudinary?.transformation);
+const categoryAttr = data.categories.join(',').toLowerCase();
+---
+
+<article class="lux-card" data-categories={categoryAttr}>
+  <a href={`/lux/${slug}/`} class="lux-card__media">
+    <img src={imageSrc} alt={data.alt} loading="lazy" decoding="async" />
+  </a>
+  <div class="lux-card__body">
+    <p class="lux-card__label">{data.displayDate}</p>
+    <h3>{data.title}</h3>
+    <p class="lux-card__meta">{data.caption}</p>
+    <p class="lux-card__location">{data.location}</p>
+    <div class="lux-card__tags">
+      {data.categories.map((category) => <span>{category}</span>)}
+    </div>
+  </div>
+</article>
+
+<style>
+  .lux-card {
+    break-inside: avoid;
+    margin-bottom: 28px;
+    border-radius: 18px;
+    background: rgba(8, 10, 20, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(5, 5, 15, 0.4);
+  }
+  .lux-card__media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.35s ease;
+  }
+  .lux-card__media:hover img {
+    transform: scale(1.015);
+  }
+  .lux-card__body {
+    padding: 18px 20px 24px;
+  }
+  .lux-card__label {
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 0.65rem;
+    color: var(--muted);
+    margin: 0 0 6px;
+  }
+  .lux-card__meta,
+  .lux-card__location {
+    color: var(--muted);
+    margin: 6px 0;
+    font-size: 0.95rem;
+  }
+  .lux-card__tags {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .lux-card__tags span {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+  }
+</style>

@@ -1,0 +1,159 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+---
+
+<SiteLayout title="Viasacra — Richard Zhu" description="Law × Physics × Design. Building quiet, useful things." active="home" mainClass="home-page">
+  <Fragment slot="head">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="anonymous" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous"></script>
+  </Fragment>
+  <section class="hero hero-cover">
+    <div class="hero-content">
+      <h1><span id="greeting">Hi — how are you today?</span></h1>
+      <p>Law × Physics × Design. Building quiet, useful things.</p>
+    </div>
+  </section>
+
+  <section class="map-gallery">
+    <div class="wrap">
+      <div class="gallery-header">
+        <h2>Places with Gravity</h2>
+        <div class="controls">
+          <button class="btn" id="prevSlide" aria-label="Previous">&#8592;</button>
+          <span id="slideLabel" class="muted"></span>
+          <button class="btn" id="nextSlide" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+
+      <div class="slides" id="mapSlides">
+        <article class="slide active">
+          <h3>CHICAGO</h3>
+          <div class="map" id="map-chicago" role="img" aria-label="Map of Chicago"></div>
+          <ul class="legend">
+            <li>❤️ = love / life</li>
+            <li>🏛️ = study</li>
+            <li>💼 = work</li>
+          </ul>
+        </article>
+        <article class="slide">
+          <h3>Los Angeles (UCLA)</h3>
+          <div class="map" id="map-la" role="img" aria-label="Map of UCLA"></div>
+          <ul class="legend">
+            <li>❤️ = love / life</li>
+            <li>🏛️ = study</li>
+            <li>💼 = work</li>
+          </ul>
+        </article>
+        <article class="slide">
+          <h3>Beijing</h3>
+          <div class="map" id="map-beijing" role="img" aria-label="Map of Beijing"></div>
+          <ul class="legend">
+            <li>❤️ = love / life</li>
+            <li>🏛️ = study</li>
+            <li>💼 = work</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <Fragment slot="afterScripts">
+    <script src="/shared/scripts/home.js" type="module"></script>
+  </Fragment>
+</SiteLayout>
+
+<style>
+  :global(.shell-main.home-page) {
+    padding-top: 0;
+  }
+  :global(.home-page .hero) {
+    max-width: none;
+    margin: 0;
+  }
+  :global(.home-page .hero.hero-cover) {
+    min-height: calc(100vh - var(--nav-stack));
+    border-radius: 0;
+    padding: 0;
+    width: 100%;
+    margin-bottom: clamp(16px, 4vw, 40px);
+  }
+  :global(.home-page .hero.hero-cover .hero-content) {
+    max-width: var(--max);
+    margin: 0 auto;
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: clamp(48px, 12vh, 120px) var(--gutter) clamp(28px, 6vh, 60px);
+    padding-left: clamp(16px, 4vw, 48px);
+  }
+  :global(.home-page .map-gallery) {
+    padding: 0 0 clamp(64px, 8vw, 120px);
+    background: transparent;
+  }
+  .gallery-header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:4px 0 12px;
+  }
+  .gallery-header h2 {
+    margin:0;
+  }
+  .controls {
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .muted {
+    color:#78716c;
+  }
+  .btn {
+    display:inline-block;
+    padding:8px 12px;
+    border:1px solid #e7e0d6;
+    border-radius:12px;
+    background:#faf7f2;
+    cursor:pointer;
+  }
+  .btn:hover {
+    filter:brightness(.98);
+  }
+  .slides {
+    position:relative;
+    overflow:hidden;
+  }
+  .slide {
+    min-height:520px;
+  }
+  .slide:not(.active) {
+    display:none;
+  }
+  .slide h3 {
+    margin:6px 0 10px;
+  }
+  .map {
+    width:100%;
+    min-height:420px;
+    height:420px;
+    border:1px solid #e7e0d6;
+    border-radius:14px;
+    background:#fff;
+  }
+  .legend {
+    list-style:none;
+    padding:8px 0 0;
+    margin:0;
+    color:#78716c;
+    display:flex;
+    gap:16px;
+  }
+  #greeting {
+    display:inline-block;
+    transition:opacity .35s ease;
+  }
+  #greeting.is-fading {
+    opacity:0;
+  }
+</style>
