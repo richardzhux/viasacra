@@ -17,6 +17,21 @@ interface Props {
 
 const { entry } = Astro.props as Props;
 const { Content } = await entry.render();
+const isConLaw = entry.slug === 'conlaw';
+
+const outlineSections = isConLaw
+  ? (() => {
+      const normalized = (entry.body || '').replace(/\r\n/g, '\n');
+      if (!normalized) return [];
+      const regex = /^##\s+(.+?)\s*$/gm;
+      const sections: { title: string }[] = [];
+      let match: RegExpExecArray | null;
+      while ((match = regex.exec(normalized)) !== null) {
+        sections.push({ title: match[1].trim() });
+      }
+      return sections;
+    })()
+  : [];
 ---
 
 <SiteLayout
@@ -31,8 +46,60 @@ const { Content } = await entry.render();
       <h1>{entry.data.title}</h1>
       <p class="essay-subhead">{entry.data.subhead}</p>
     </header>
-    <div class="essay-body">
-      <Content />
-    </div>
+    {isConLaw && outlineSections.length ? (
+      <>
+        <section class="essay-outline" data-outline-root>
+          {outlineSections.map((section, index) => (
+            <details class="essay-outline__item" open={index === 0} data-outline-index={index}>
+              <summary>
+                <span>{section.title}</span>
+                <span class="essay-outline__chevron" aria-hidden="true">⌄</span>
+              </summary>
+              <div class="essay-outline__body"></div>
+            </details>
+          ))}
+        </section>
+        <div id="conlaw-outline-source" class="essay-outline__source" aria-hidden="true">
+          <Content />
+        </div>
+        <script is:inline>
+          document.addEventListener('DOMContentLoaded', () => {
+            const source = document.getElementById('conlaw-outline-source');
+            const outline = document.querySelector('[data-outline-root]');
+            if (!source || !outline) return;
+            const headingNodes = Array.from(source.querySelectorAll('h2'));
+            const bodies = Array.from(outline.querySelectorAll('.essay-outline__body'));
+            if (!headingNodes.length || !bodies.length) return;
+            const moveRange = (startNode, stopNode, target) => {
+              if (!startNode || !target) return;
+              const fragment = document.createDocumentFragment();
+              let node = startNode;
+              while (node && node !== stopNode) {
+                const next = node.nextSibling;
+                fragment.appendChild(node);
+                node = next;
+              }
+              if (fragment.childNodes.length) {
+                target.appendChild(fragment);
+              }
+            };
+            const firstHeading = headingNodes[0];
+            if (firstHeading) {
+              moveRange(source.firstChild, firstHeading, bodies[0]);
+            }
+            headingNodes.forEach((heading, index) => {
+              const nextHeading = headingNodes[index + 1] || null;
+              moveRange(heading, nextHeading, bodies[index]);
+              heading.remove();
+            });
+            source.remove();
+          });
+        </script>
+      </>
+    ) : (
+      <div class="essay-body">
+        <Content />
+      </div>
+    )}
   </article>
 </SiteLayout>

@@ -224,15 +224,15 @@ button#cta {
 
 /* Leaflet permanent labels */
 .map-label {
-  background:rgba(255,255,255,0.9);
-  border:1px solid #e7e0d6;
+  background:var(--panel);
+  border:1px solid var(--border);
   border-radius:12px;
   padding:4px 8px;
   font-size:14.5px;
-  color:#222;
-  box-shadow:0 6px 14px rgba(0,0,0,.08);
+  color:var(--fg);
+  box-shadow:var(--shadow);
 }
-.leaflet-tooltip-top:before { border-top-color:#e7e0d6; }
+.leaflet-tooltip-top:before { border-top-color:var(--border); }
 
 /* Map gallery */
 .map-gallery { padding: 64px 0 40px; background: var(--paper); }
@@ -241,7 +241,7 @@ button#cta {
 .gallery-header h2 { margin:0; }
 .controls { display:flex; align-items:center; gap:10px; }
 .controls .muted { color:var(--muted); font-size:14px; }
-.btn { display:inline-block; padding:8px 12px; border:1px solid var(--line); border-radius:var(--radius); background:var(--sand); cursor:pointer; }
+.btn { display:inline-block; padding:8px 12px; border:1px solid var(--line); border-radius:var(--radius); background:var(--sand); cursor:pointer; color:var(--fg); transition:background 0.25s ease, color 0.25s ease, border-color 0.25s ease; }
 .btn:hover { filter:brightness(.98); }
 
 /* Slides */
@@ -251,7 +251,7 @@ button#cta {
 .slide h3 { margin:6px 0 10px; }
 
 /* Map box */
-.map { width:100%; height:420px; border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); background:#fff; }
+.map { width:100%; height:420px; border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); background:var(--paper); }
 .legend { list-style:none; padding:8px 0 0; margin:0; color:var(--muted); display:flex; gap:16px; }
 
 /* Random / NYT blocks */
@@ -611,11 +611,12 @@ button#cta {
   padding-bottom:120px;
 }
 .essay{
-  background:rgba(255,255,255,.92);
+  background:var(--panel);
+  border:1px solid var(--border);
   border-radius:24px;
-  box-shadow:0 20px 48px rgba(0,0,0,.12);
+  box-shadow:var(--shadow);
   padding:48px clamp(24px,6vw,64px);
-  color:#2a2622;
+  color:var(--fg);
 }
 .essay-header{
   display:flex;
@@ -627,7 +628,7 @@ button#cta {
   text-transform:uppercase;
   letter-spacing:0.24em;
   font-size:12px;
-  color:#8c8577;
+  color:var(--muted);
   margin:0;
 }
 .essay h1{
@@ -636,7 +637,7 @@ button#cta {
 }
 .essay-subhead{
   margin:0;
-  color:#5e5649;
+  color:var(--muted);
   font-size:18px;
   line-height:1.7;
 }
@@ -646,14 +647,14 @@ button#cta {
   gap:20px;
   font-size:18px;
   line-height:1.8;
-  color:#2e2a26;
+  color:var(--fg);
 }
 .essay-body h2,
 .essay-body h3,
 .essay-body h4{
   margin-top:40px;
   margin-bottom:12px;
-  color:#222;
+  color:var(--fg);
 }
 .essay-body h3{font-size:24px;}
 .essay-body h4{font-size:20px;}
@@ -671,22 +672,86 @@ button#cta {
   border-collapse:collapse;
   font-size:16px;
   margin:12px 0;
-  background:#f9f7f4;
+  background:var(--paper);
   border-radius:12px;
   overflow:hidden;
 }
 .essay-body table th,
 .essay-body table td{
   padding:12px 14px;
-  border-bottom:1px solid #e0d8ce;
+  border-bottom:1px solid var(--line);
   text-align:left;
 }
 .essay-body table tr:last-child td{border-bottom:none;}
-.essay-body strong{color:#1f1b17;}
+.essay-body strong{color:var(--fg);}
 .essay-loading,
 .essay-error{
   margin:0;
-  color:#6d6557;
+  color:var(--muted);
+}
+.essay-outline{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  margin-top:12px;
+}
+.essay-outline__item{
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:var(--panel);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+body.is-light .essay-outline__item{
+  background:var(--paper);
+}
+.essay-outline__item summary{
+  padding:18px 24px;
+  margin:0;
+  list-style:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  font-size:1.05rem;
+  font-weight:600;
+  color:var(--fg);
+}
+.essay-outline__item summary::-webkit-details-marker{
+  display:none;
+}
+.essay-outline__chevron{
+  transition:transform .2s ease;
+  font-size:1.1rem;
+  color:var(--muted);
+}
+.essay-outline__item[open] .essay-outline__chevron{
+  transform:rotate(180deg);
+}
+.essay-outline__body{
+  padding:0 24px 24px;
+  border-top:1px solid var(--line);
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  color:var(--fg);
+}
+.essay-outline__body :global(p){
+  margin:0;
+}
+.essay-outline__body :global(ul),
+.essay-outline__body :global(ol){
+  margin:0;
+  padding-left:22px;
+}
+.essay-outline__body :global(h3),
+.essay-outline__body :global(h4){
+  margin:16px 0 6px;
+  color:var(--fg);
+}
+.essay-outline__source{
+  display:none;
 }
 
 /* Lux gallery */

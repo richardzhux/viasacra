@@ -77,6 +77,11 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
     width: 100%;
     margin-bottom: clamp(16px, 4vw, 40px);
   }
+  :global(.home-page .hero.hero-cover h1),
+  :global(.home-page .hero.hero-cover p) {
+    color: #fff;
+    text-shadow: 0 18px 42px rgba(0, 0, 0, 0.55);
+  }
   :global(.home-page .hero.hero-cover .hero-content) {
     max-width: var(--max);
     margin: 0 auto;
@@ -106,16 +111,15 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
     align-items:center;
     gap:10px;
   }
-  .muted {
-    color:#78716c;
-  }
+  .muted { color:var(--muted); }
   .btn {
     display:inline-block;
     padding:8px 12px;
-    border:1px solid #e7e0d6;
+    border:1px solid var(--line);
     border-radius:12px;
-    background:#faf7f2;
+    background:var(--sand);
     cursor:pointer;
+    color:var(--fg);
   }
   .btn:hover {
     filter:brightness(.98);
@@ -137,15 +141,16 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
     width:100%;
     min-height:420px;
     height:420px;
-    border:1px solid #e7e0d6;
+    border:1px solid var(--line);
     border-radius:14px;
-    background:#fff;
+    background:var(--paper);
+    box-shadow:var(--shadow);
   }
   .legend {
     list-style:none;
     padding:8px 0 0;
     margin:0;
-    color:#78716c;
+    color:var(--muted);
     display:flex;
     gap:16px;
   }

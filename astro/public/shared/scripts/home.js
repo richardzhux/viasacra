@@ -154,18 +154,32 @@ function initMaps() {
     });
 
   const slides = Array.from(document.querySelectorAll(".slide"));
+  const maps = [mapChi, mapLA, mapBJ];
   let idx = 0;
   const label = document.getElementById("slideLabel");
   const names = ["Chicago", "Los Angeles (UCLA)", "Beijing"];
+
+  const refreshMap = (map) => {
+    if (!map) return;
+    try {
+      map.invalidateSize();
+      map.eachLayer((layer) => {
+        if (typeof layer.getTooltip === "function") {
+          const tooltip = layer.getTooltip();
+          if (tooltip && typeof tooltip.update === "function") {
+            tooltip.update();
+          }
+        }
+      });
+    } catch {}
+  };
 
   function show(nextIndex) {
     slides.forEach((slide, slideIndex) => slide.classList.toggle("active", slideIndex === nextIndex));
     if (label) label.textContent = `${names[nextIndex]} • ${nextIndex + 1}/${slides.length}`;
     setTimeout(() => {
-      try { mapChi.invalidateSize(); } catch {}
-      try { mapLA.invalidateSize(); } catch {}
-      try { mapBJ.invalidateSize(); } catch {}
-    }, 150);
+      maps.forEach(refreshMap);
+    }, 200);
   }
 
   document.getElementById("prevSlide")?.addEventListener("click", () => {
